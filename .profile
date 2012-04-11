@@ -1,0 +1,2 @@
+#run conky
+~/bin/startConky &

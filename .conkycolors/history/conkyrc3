@@ -1,0 +1,52 @@
+######################
+# - Conky settings - #
+######################
+update_interval 1
+total_run_times 0
+net_avg_samples 1
+cpu_avg_samples 1
+
+imlib_cache_size 0
+double_buffer yes
+no_buffers yes
+
+format_human_readable
+
+#####################
+# - Text settings - #
+#####################
+use_xft yes
+xftfont Droid Sans:size=8
+override_utf8_locale yes
+text_buffer_size 8192
+
+#############################
+# - Window specifications - #
+#############################
+own_window_class Conky
+own_window yes
+own_window_type override
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+alignment top_left
+gap_x 45
+gap_y 30
+maximum_width 1700
+
+#########################
+# - Graphics settings - #
+#########################
+draw_shades no
+
+default_color 3C3B37
+
+color0 292927
+color1 FFFFFF
+color2 292927
+
+TEXT
+###############
+# - twitter - #
+###############
+${goto 0}${font うずらフォント:size=12}${color1}${execi 60 ~/wordSearch/wordSearchNoColor.rb}${color}${font}

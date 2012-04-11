@@ -1,0 +1,8 @@
+#!/bin/sh
+
+sleep 10
+conky -c $HOME/.conkycolors/conkyrc &
+#sleep 10
+#conky -c $HOME/.conkycolors/conkyrc2 &
+#sleep 180
+#conky -c $HOME/.conkycolors/conkyrc3 &

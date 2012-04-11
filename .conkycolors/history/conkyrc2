@@ -1,0 +1,57 @@
+######################
+# - Conky settings - #
+######################
+update_interval 1
+total_run_times 0
+net_avg_samples 1
+cpu_avg_samples 1
+
+imlib_cache_size 0
+double_buffer yes
+no_buffers yes
+
+format_human_readable
+
+#####################
+# - Text settings - #
+#####################
+use_xft yes
+xftfont Droid Sans:size=8
+override_utf8_locale yes
+text_buffer_size 2048
+
+#############################
+# - Window specifications - #
+#############################
+own_window_class Conky
+own_window yes
+own_window_type override
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+alignment bottom_right
+gap_x 15
+gap_y -50
+minimum_size 750 0
+maximum_width 850
+
+default_bar_size 60 8
+
+#########################
+# - Graphics settings - #
+#########################
+draw_shades no
+
+default_color 3C3B37
+
+color0 292927
+color1 FFFFFF
+color2 292927
+
+TEXT
+#############
+# - CLOCK - #
+#############
+${goto 0}${font Arial Black:size=202}${color1}${time %H}${color}${font}${voffset -110}${font Arial Black:style=Bold:size=78}${color1}${time :%M}${time :%S}${color}${font}
+${voffset -200}${goto 560}${font Inconsolate:style=Bold:size=36}${color1}${time %A}${color}${font}
+${goto 430}${font Arial Black:size=34}${color1}${time %d %m %Y}${color}${font}

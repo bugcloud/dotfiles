@@ -1,0 +1,11 @@
+*.o
+\#*#
+*#
+.#*
+.*~
+*~
+.DS_Store
+*.sw[po]
+.svn
+*.log
+.vim/bundle/

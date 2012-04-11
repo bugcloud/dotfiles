@@ -1,0 +1,27 @@
+[user]
+  name = bugcloud
+  email = bugcloudisco@bugcloud.com
+[color]
+  ui = true
+[alias]
+  st = status
+  df = diff
+  co = checkout
+  br = branch
+  ca = commit -a
+  cam = commit -am
+  wc = whatchanged
+  mg = merge --no-ff
+  log-graph = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
+  log-all = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d%Creset'
+  push-bugcloud = push --receive-pack /virtual/bugcloud/local/bin/git-receive-pack
+  pull-bugcloud = pull --upload-pack /virtual/bugcloud/local/bin/git-upload-pack
+  clone-bugcloud = clone --upload-pack /virtual/bugcloud/local/bin/git-upload-pack
+[giggle]
+  main-window-maximized = false
+  main-window-geometry = 1635x833+1920+24
+  history-view-vpane-position = 461
+  main-window-view = HistoryView
+  file-view-vpane-position = 695
+[core]
+  editor = vim
