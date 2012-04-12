@@ -16,3 +16,7 @@ rm -rf `find ./ -type d -name .svn ! -regex \.svn/. -print`
 
 # ファイル名を置換するワンライナー
 ls *.png | cut -d ' ' -f14,15,16,17 |perl -nle '$o=$_;$_=~s/\s/_/i;$_=lc($_);$_=~s/^/PATTERN/i;rename($o, $_);'
+
+# one line monkey glitch using ruby
+# (jpeg only)
+ruby -e 'open("out.jpg", "wb"){|o| o.write open(FILENAME, "rb").read.gsub!(/\d/, rand(10).to_s)}'
