@@ -1,0 +1,18 @@
+# grep + sed
+grep -lr SOMETHING * | grep -v 'EXCEPT_PATH' | xargs sed -i 's/SOMETHING/REPLACE/g'
+
+# findとsedでディレクトリ内のファイルからある文字列を一括置換する
+#  b、t、B、Eで、タブ、スペース、空行の違いが無視されます。
+#  rは再帰的に、qはファイル名だけ表示するオプションです。
+find . -name "*.hbm.xml" -exec sed -i 's/hibernate-mapping-2.0/hibernate-mapping-3.0/g' {} \;
+
+#文字コード・改行変換
+find . -name '*.sql' | xargs nkf --overwrite -w -Lu
+iconv -s -f SHIFT_JIS -t UTF-8
+find . -name '*.java' | xargs nkf --overwrite -w -Lu --ic=EUC-JP --oc=UTF-8
+
+# .svnを消す
+rm -rf `find ./ -type d -name .svn ! -regex \.svn/. -print`
+
+# ファイル名を置換するワンライナー
+ls *.png | cut -d ' ' -f14,15,16,17 |perl -nle '$o=$_;$_=~s/\s/_/i;$_=lc($_);$_=~s/^/PATTERN/i;rename($o, $_);'
