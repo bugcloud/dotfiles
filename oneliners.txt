@@ -1,3 +1,6 @@
+# ファイルの N行目 〜 NN行目を表示
+sed -n 'N,NNp' FILE_NAME
+
 # grep + sed
 grep -lr SOMETHING * | grep -v 'EXCEPT_PATH' | xargs sed -i 's/SOMETHING/REPLACE/g'
 
