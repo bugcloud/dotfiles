@@ -31,6 +31,8 @@ NeoBundle 'git://github.com/mattn/hahhah-vim.git'
 NeoBundle 'git://github.com/ujihisa/neco-ruby.git'
 NeoBundle 'git://github.com/vim-scripts/sudo.vim.git'
 NeoBundle 'git://github.com/koron/nyancat-vim.git'
+NeoBundle 'git://github.com/Sixeight/unite-grep.git'
+NeoBundle 'git://github.com/thinca/vim-qfreplace.git'
 
 filetype plugin on
 filetype indent on
@@ -154,6 +156,9 @@ nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
 " 全部乗せ
 nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+" grep
+let g:unite_source_grep_default_opts = '-iRHn'
+nnoremap <silent> ,ug :Unite grep:./:%<CR>
 
 " unite.vim上でのキーマッピング
 autocmd FileType unite call s:unite_my_settings()
