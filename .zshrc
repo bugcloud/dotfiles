@@ -374,7 +374,7 @@ alias :sp='tmux split-window -v'
 #
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
 
-export PATH="$PATH:$HOME/.gitscripts:$HOME/android/android-sdk-linux/tools:$HOME/android/android-sdk-linux/platform-tools:$HOME/android/android-ndk-r7:$HOME/node_modules/coffee-script/bin"
+export PATH="$PATH:$HOME/bin:$HOME/.gitscripts:$HOME/android/android-sdk-linux/tools:$HOME/android/android-sdk-linux/platform-tools:$HOME/android/android-ndk-r7:$HOME/node_modules/coffee-script/bin"
 export SVN_EDITOR="vim"
 export GDK_NATIVE_WINDOWS=1
 export JAVA_HOME="/usr/lib/jvm/java-6-openjdk/"
