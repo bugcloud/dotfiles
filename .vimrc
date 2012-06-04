@@ -58,6 +58,20 @@ set nocompatible
 set laststatus=2
 set encoding=utf-8
 set clipboard=unnamed
+autocmd BufWritePre * call RTrim()
+
+"Global Key binds
+imap {} {}<Left>
+imap [] []<Left>
+imap () ()<Left>
+imap "" ""<Left>
+imap '' ''<Left>
+imap <> <><Left>
+" switch window
+nmap <C-j> <C-W>j
+nmap <C-k> <C-W>k
+nmap <C-h> <C-w>h
+nmap <C-l> <C-w>l
 
 "Powerline
 let g:Powerline_symbols = 'fancy'
@@ -103,19 +117,10 @@ let g:rails_default_database="sqlite3"
 "git
 set statusline=%{GitBranch()}
 
-"cakephp
 nmap ,l :call PHPLint()<CR>
-nmap ccc :Cakecontroller
-nmap ccm :Cakemodel
-nmap ccv :Cakeview
-nmap ccj :Cakejavascript
-autocmd BufNewFile,BufRead *.ctp set filetype=php
-autocmd FileType php :set dictionary=/usr/share/vim/vim71/syntax/php.vim
 imap <Nul> <C-x><C-o>
 let g:treeExplVertical=1
 let g:treeExplWinSize=30
-let g:pdv_cfg_Author   = "Buglcoud <bugcloudisco@bugcloud.com>"
-let g:pdv_cfg_Copyright= "Copyright (C) 2011 Bugcloud. All Rights Reserved."
 inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
 nnoremap <C-P> :call PhpDocSingle()<CR>
 vnoremap <C-P> :call PhpDocRange()<CR>
@@ -190,8 +195,8 @@ function PHPLint()
   echo result
 endfunction
 
-" switch window
-nmap <C-j> <C-W>j
-nmap <C-k> <C-W>k
-nmap <C-h> <C-w>h
-nmap <C-l> <C-w>l
+function! RTrim()
+  let s:cursor = getpos(".")
+  %s/\s\+$//e
+  call setpos(".", s:cursor)
+endfunction
