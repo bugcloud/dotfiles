@@ -408,3 +408,5 @@ fi
 #BBBBBBBBBBBBBBBBB       uuuuuuuu  uuuu      GGGGGG   GGGG    ccccccccccccccccllllllll   ooooooooooo        UUUUUUUUU        ddddddddd   ddddd'
 #
 #
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
