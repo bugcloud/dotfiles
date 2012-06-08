@@ -33,6 +33,8 @@ NeoBundle 'git://github.com/vim-scripts/sudo.vim.git'
 NeoBundle 'git://github.com/koron/nyancat-vim.git'
 NeoBundle 'git://github.com/Sixeight/unite-grep.git'
 NeoBundle 'git://github.com/thinca/vim-qfreplace.git'
+NeoBundle 'git://github.com/mattn/webapi-vim.git'
+NeoBundle 'git://github.com/mattn/gal-vim.git'
 
 filetype plugin on
 filetype indent on
