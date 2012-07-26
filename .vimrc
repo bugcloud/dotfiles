@@ -59,7 +59,7 @@ set listchars=tab:>-
 set nocompatible
 set laststatus=2
 set encoding=utf-8
-set clipboard=unnamed
+set clipboard+=unnamed
 autocmd BufWritePre * call RTrim()
 
 "Global Key binds
@@ -69,6 +69,8 @@ imap () ()<Left>
 imap "" ""<Left>
 imap '' ''<Left>
 imap <> <><Left>
+" Visualモード時のヤンクをクリップボードにも入れる
+vmap ,y "+y
 " switch window
 nmap <C-j> <C-W>j
 nmap <C-k> <C-W>k
