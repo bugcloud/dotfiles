@@ -202,3 +202,10 @@ function! RTrim()
   %s/\s\+$//e
   call setpos(".", s:cursor)
 endfunction
+
+" For Mac OS
+" ,y : レジスタに入ってるテキストをクリップボードに保存
+let s:is_mac = (has('mac') || has('macunix') || has('gui_macvim') || system('uname') =~? '^darwin')
+if s:is_mac
+  nmap ,y :call system("pbcopy", @")<CR>
+endif
