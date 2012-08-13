@@ -4,8 +4,9 @@ ip li | grep ether | awk '{print $2}'
 # ファイルの N行目 〜 NN行目を表示
 sed -n 'N,NNp' FILE_NAME
 
-# grep + sed
-grep -lr SOMETHING * | grep -v 'EXCEPT_PATH' | xargs sed -i 's/SOMETHING/REPLACE/g'
+# grep + sed (.originalというファイル名でバックアップを作成)
+# バックアップがいらないときは sed -i '' 's/SOMETHING/REPLACE/g'
+grep -lr SOMETHING * | grep -v 'EXCEPT_PATH' | xargs sed -i '.original' 's/SOMETHING/REPLACE/g'
 
 # findとsedでディレクトリ内のファイルからある文字列を一括置換する
 #  b、t、B、Eで、タブ、スペース、空行の違いが無視されます。
@@ -26,3 +27,6 @@ ls *.png | cut -d ' ' -f14,15,16,17 |perl -nle '$o=$_;$_=~s/\s/_/i;$_=lc($_);$_=
 # one line monkey glitch using ruby
 # (jpeg only)
 ruby -e 'open("out.jpg", "wb"){|o| o.write open(FILENAME, "rb").read.gsub!(/\d/, rand(10).to_s)}'
+
+# アクセスランキングを表示
+cat ACCESS_LOG | cut -f 1 -d ' ' | sort | uniq -c | sort -nr
