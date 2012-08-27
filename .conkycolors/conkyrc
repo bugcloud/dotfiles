@@ -50,9 +50,9 @@ border_margin 0
 border_width 0
 
 # Default colors and also border colors
-default_color B7B7B7
-default_shade_color B7B7B7
-default_outline_color B7B7B7
+default_color 1E1E1E
+default_shade_color 1E1E1E
+default_outline_color 1E1E1E
 
 # own window options
 own_window_class		Conky
@@ -93,6 +93,6 @@ override_utf8_locale yes
 use_spacer no
 
 TEXT
-${font Clean:size=7}${offset 85}${color #B7B7B7}CPU ${cpubar 3,95}${offset 85}HDD ${fs_bar 3,95}${offset 85}MEM ${membar 3,95}${offset 85}BAT ${battery_bar 3,95}${offset 85}ENT ${entropy_bar 3,95}${offset 85}SWP ${swapbar 3,95}
+${font Clean:size=7}${offset 85}${color #1E1E1E}CPU ${cpubar 3,95}${offset 85}HDD ${fs_bar 3,95}${offset 85}MEM ${membar 3,95}${offset 85}BAT ${battery_bar 3,95}${offset 85}ENT ${entropy_bar 3,95}${offset 85}SWP ${swapbar 3,95}
 ${voffset 20}${font Pricedown:pixelsize=95}${alignc}${time %H:%M}${font}
 ${font Blue Highway:pixelsize=15}${alignc}${time %A} | ${time %d} ${time  %B} ${time %Y}${font}
