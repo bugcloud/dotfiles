@@ -35,6 +35,7 @@ NeoBundle 'git://github.com/Sixeight/unite-grep.git'
 NeoBundle 'git://github.com/thinca/vim-qfreplace.git'
 NeoBundle 'git://github.com/mattn/webapi-vim.git'
 NeoBundle 'git://github.com/mattn/gal-vim.git'
+NeoBundle 'git://github.com/othree/html5.vim.git'
 
 filetype plugin on
 filetype indent on
@@ -49,6 +50,9 @@ let g:solarized_termcolors=16
 let g:solarized_termtrans=1
 colorscheme solarized
 set hlsearch
+set incsearch
+set ignorecase
+set smartcase
 set smartindent
 set number
 set mouse=a
@@ -60,6 +64,9 @@ set nocompatible
 set laststatus=2
 set encoding=utf-8
 set clipboard+=unnamed
+" コマンドモードの補完で大文字小文字を無視
+set wildignorecase
+set wildmode=list:full
 autocmd BufWritePre * call RTrim()
 
 "Global Key binds
@@ -211,3 +218,49 @@ let s:is_mac = (has('mac') || has('macunix') || has('gui_macvim') || system('una
 if s:is_mac
   nmap ,y :call system("pbcopy", @")<CR>
 endif
+
+"insert comment to end tag
+function! Endtagcomment()
+    let reg_save = @@
+
+    try
+        silent normal vaty
+      catch
+        execute "normal \<Esc>"
+        echohl ErrorMsg
+        echo 'no match html tags'
+        echohl None
+        return
+    endtry
+
+    let html = @@
+
+    let start_tag = matchstr(html, '\v(\<.{-}\>)')
+    let tag_name  = matchstr(start_tag, '\v([a-zA-Z]+)')
+
+    let id = ''
+    let id_match = matchlist(start_tag, '\vid\=["'']([^"'']+)["'']')
+    if exists('id_match[1]')
+        let id = '#' . id_match[1]
+    endif
+
+    let class = ''
+    let class_match = matchlist(start_tag, '\vclass\=["'']([^"'']+)["'']')
+    if exists('class_match[1]')
+        let class = '.' . join(split(class_match[1], '\v\s+'), '.')
+    endif
+
+    execute "normal `]va<\<Esc>`<"
+
+    let comment = g:endtagcommentFormat
+    let comment = substitute(comment, '%id', id, 'g')
+    let comment = substitute(comment, '%class', class, 'g')
+    let @@ = comment
+
+    normal ""P
+
+    let @@ = reg_save
+endfunction
+
+let g:endtagcommentFormat = '<!-- /%id%class -->'
+nnoremap ,t :<C-u>call Endtagcomment()<CR>
