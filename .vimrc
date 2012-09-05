@@ -36,7 +36,7 @@ NeoBundle 'git://github.com/thinca/vim-qfreplace.git'
 NeoBundle 'git://github.com/mattn/webapi-vim.git'
 NeoBundle 'git://github.com/mattn/gal-vim.git'
 NeoBundle 'git://github.com/othree/html5.vim.git'
-NeoBundle 'git://github.com/vim-scripts/Rainbow-Parenthesis.git'
+NeoBundle 'git://github.com/kien/rainbow_parentheses.vim.git'
 NeoBundle 'git://github.com/vim-scripts/toggle_mouse.git'
 
 filetype plugin on
