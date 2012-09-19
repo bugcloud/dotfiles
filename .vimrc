@@ -19,25 +19,29 @@ NeoBundle 'git://github.com/Shougo/vinarise.git'
 NeoBundle 'git://github.com/kchmck/vim-coffee-script.git'
 NeoBundle 'git://github.com/altercation/vim-colors-solarized.git'
 NeoBundle 'git://github.com/Lokaltog/vim-powerline.git'
+NeoBundle 'git://github.com/Lokaltog/vim-easymotion.git'
 NeoBundle 'git://github.com/tpope/vim-surround.git'
 NeoBundle 'git://github.com/tpope/vim-rails.git'
 NeoBundle 'git://github.com/tpope/vim-cucumber.git'
 NeoBundle 'git://github.com/tpope/vim-haml.git'
 NeoBundle 'git://github.com/tpope/vim-rake.git'
+NeoBundle 'git://github.com/tpope/vim-endwise.git'
 NeoBundle 'git://github.com/motemen/git-vim.git'
-NeoBundle 'git://github.com/Lokaltog/vim-easymotion.git'
 NeoBundle 'git://github.com/scrooloose/syntastic.git'
-NeoBundle 'git://github.com/mattn/hahhah-vim.git'
 NeoBundle 'git://github.com/ujihisa/neco-ruby.git'
-NeoBundle 'git://github.com/vim-scripts/sudo.vim.git'
 NeoBundle 'git://github.com/koron/nyancat-vim.git'
 NeoBundle 'git://github.com/Sixeight/unite-grep.git'
 NeoBundle 'git://github.com/thinca/vim-qfreplace.git'
+NeoBundle 'git://github.com/thinca/vim-ref.git'
+NeoBundle 'git://github.com/taka84u9/vim-ref-ri.git'
+NeoBundle 'git://github.com/mattn/hahhah-vim.git'
 NeoBundle 'git://github.com/mattn/webapi-vim.git'
 NeoBundle 'git://github.com/mattn/gal-vim.git'
 NeoBundle 'git://github.com/othree/html5.vim.git'
 NeoBundle 'git://github.com/kien/rainbow_parentheses.vim.git'
+NeoBundle 'git://github.com/vim-scripts/sudo.vim.git'
 NeoBundle 'git://github.com/vim-scripts/toggle_mouse.git'
+NeoBundle 'git://github.com/tomtom/tcomment_vim.git'
 
 filetype plugin on
 filetype indent on
@@ -99,6 +103,7 @@ let g:neocomplcache_enable_auto_select = 1
 " Plugin key-mappings.
 imap <C-k> <Plug>(neocomplcache_snippets_expand)
 smap <C-k> <Plug>(neocomplcache_snippets_expand)
+imap <C-U> <Esc>:Unite snippet<CR>
 inoremap <expr><C-g>  neocomplcache#undo_completion()
 inoremap <expr><C-l>  neocomplcache#complete_common_string()
 " <TAB>: completion.
@@ -108,6 +113,10 @@ inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
+au FileType snippet nmap <buffer><Space>e :e #<CR>
+" snippetの編集
+nmap <Space>e :<C-U>NeoComplCacheEditSnippets<CR>
+au BufRead,BufNewFile *.snip  set filetype=snippet
 
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
