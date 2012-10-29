@@ -50,14 +50,14 @@ colors
 #    PROMPT="%B%{${fg[yellow]}%}%/#%{${reset_color}%}%b "
 #    PROMPT2="%B%{${fg[red]}%}%_#%{${reset_color}%}%b "
 #    SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
-#    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+#    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
 #        PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
 #    ;;
 #*)
 #    PROMPT="%{${fg[yellow]}%}%/%%%{${reset_color}%} "
 #    PROMPT2="%{${fg[red]}%}%_%%%{${reset_color}%} "
 #    SPROMPT="%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
-#    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+#    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
 #        PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
 #    ;;
 #esac
@@ -98,7 +98,7 @@ setopt cdable_vars sh_word_split auto_param_keys
 
 ## Keybind configuration
 #
-# emacs like keybind (e.x. Ctrl-a goes to head of a line and Ctrl-e goes 
+# emacs like keybind (e.x. Ctrl-a goes to head of a line and Ctrl-e goes
 #   to end of it)
 #
 bindkey -d
@@ -172,7 +172,7 @@ darwin*)
 freebsd*)
     case ${UID} in
     0)
-        updateports() 
+        updateports()
         {
             if [ -f /usr/ports/.portsnap.INDEX ]
             then
@@ -332,7 +332,7 @@ else
     ZSH_THEME_GIT_PROMPT_UNTRACKED=" ✭"
 fi
 #################################################################################
- 
+
 #################################################################################
 #
 # Copied from
@@ -387,26 +387,5 @@ fi
 #if [[ -f $HOME/.nave/nave.sh ]]; then
 #  $HOME/.nave/nave.sh use latest
 #fi
-
-#echo '
-#                                                                                                                                     dddddddd
-#BBBBBBBBBBBBBBBBB                           GGGGGGGGGGGGG                    lllllll                 UUUUUUUU     UUUUUUUU           d::::::d
-#B::::::::::::::::B                       GGG::::::::::::G                    l:::::l                 U::::::U     U::::::U           d::::::d
-#B::::::BBBBBB:::::B                    GG:::::::::::::::G                    l:::::l                 U::::::U     U::::::U           d::::::d
-#BB:::::B     B:::::B                  G:::::GGGGGGGG::::G                    l:::::l                 UU:::::U     U:::::UU           d:::::d 
-#  B::::B     B:::::Buuuuuu    uuuuuu G:::::G       GGGGGG    cccccccccccccccc l::::l    ooooooooooo   U:::::U     U:::::U    ddddddddd:::::d 
-#  B::::B     B:::::Bu::::u    u::::uG:::::G                cc:::::::::::::::c l::::l  oo:::::::::::oo U:::::D     D:::::U  dd::::::::::::::d 
-#  B::::BBBBBB:::::B u::::u    u::::uG:::::G               c:::::::::::::::::c l::::l o:::::::::::::::oU:::::D     D:::::U d::::::::::::::::d 
-#  B:::::::::::::BB  u::::u    u::::uG:::::G    GGGGGGGGGGc:::::::cccccc:::::c l::::l o:::::ooooo:::::oU:::::D     D:::::Ud:::::::ddddd:::::d 
-#  B::::BBBBBB:::::B u::::u    u::::uG:::::G    G::::::::Gc::::::c     ccccccc l::::l o::::o     o::::oU:::::D     D:::::Ud::::::d    d:::::d 
-#  B::::B     B:::::Bu::::u    u::::uG:::::G    GGGGG::::Gc:::::c              l::::l o::::o     o::::oU:::::D     D:::::Ud:::::d     d:::::d 
-#  B::::B     B:::::Bu::::u    u::::uG:::::G        G::::Gc:::::c              l::::l o::::o     o::::oU:::::D     D:::::Ud:::::d     d:::::d 
-#  B::::B     B:::::Bu:::::uuuu:::::u G:::::G       G::::Gc::::::c     ccccccc l::::l o::::o     o::::oU::::::U   U::::::Ud:::::d     d:::::d 
-#BB:::::BBBBBB::::::Bu:::::::::::::::uuG:::::GGGGGGGG::::Gc:::::::cccccc:::::cl::::::lo:::::ooooo:::::oU:::::::UUU:::::::Ud::::::ddddd::::::dd
-#B:::::::::::::::::B  u:::::::::::::::u GG:::::::::::::::G c:::::::::::::::::cl::::::lo:::::::::::::::o UU:::::::::::::UU  d:::::::::::::::::d
-#B::::::::::::::::B    uu::::::::uu:::u   GGG::::::GGG:::G  cc:::::::::::::::cl::::::l oo:::::::::::oo    UU:::::::::UU     d:::::::::ddd::::d
-#BBBBBBBBBBBBBBBBB       uuuuuuuu  uuuu      GGGGGG   GGGG    ccccccccccccccccllllllll   ooooooooooo        UUUUUUUUU        ddddddddd   ddddd'
-#
-#
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
