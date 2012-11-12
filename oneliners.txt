@@ -30,3 +30,7 @@ ruby -e 'open("out.jpg", "wb"){|o| o.write open(FILENAME, "rb").read.gsub!(/\d/,
 
 # アクセスランキングを表示
 cat ACCESS_LOG | cut -f 1 -d ' ' | sort | uniq -c | sort -nr
+
+# Mac Only
+# SVGファイルをPNGに変換する(1000は画像サイズ[px])
+qlmanage -t -s 1000 -o . ***.svg
