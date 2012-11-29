@@ -42,6 +42,7 @@ NeoBundle 'git://github.com/kien/rainbow_parentheses.vim.git'
 NeoBundle 'git://github.com/vim-scripts/sudo.vim.git'
 NeoBundle 'git://github.com/vim-scripts/toggle_mouse.git'
 NeoBundle 'git://github.com/tomtom/tcomment_vim.git'
+NeoBundle 'git://github.com/honza/snipmate-snippets.git'
 
 filetype plugin on
 filetype indent on
@@ -99,6 +100,9 @@ let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_underbar_completion = 1
 let g:neocomplcache_enable_auto_select = 1
+
+" neosnippet
+let g:neosnippet#snippets_directory='~/.bundle/snipmate-snippets/snippets'
 
 " Plugin key-mappings.
 imap <C-k> <Plug>(neocomplcache_snippets_expand)
