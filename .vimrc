@@ -102,6 +102,7 @@ let g:neocomplcache_enable_underbar_completion = 1
 let g:neocomplcache_enable_auto_select = 1
 
 " neosnippet
+let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory='~/.bundle/snipmate-snippets/snippets'
 
 " Plugin key-mappings.
