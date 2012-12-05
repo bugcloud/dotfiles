@@ -21,7 +21,7 @@ ZSH_THEME="robbyrussell"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git gem compleat rails3 ruby rvm heroku)
+plugins=(git gem compleat rails3 ruby heroku)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -301,7 +301,7 @@ $(virtualenv_info)$(prompt_char) '
     return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 
     # Loads rvm info to the right side of the zsh prompt showing: ruby-version@gemset-name
-    RPROMPT='$(~/.rvm/bin/rvm-prompt)'
+    # RPROMPT='$(~/.rvm/bin/rvm-prompt)'
 
     # Displays different symbols (simultaneously) depending on the current status of your git repo.
     ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%} ✚"
@@ -369,12 +369,14 @@ alias nave='~/.nave/nave.sh'
 alias cmdfu='cmdline-fu matching'
 alias :vsp='tmux split-window -h'
 alias :sp='tmux split-window -v'
+# Only Mac OS X
+alias ctags="`brew --prefix`/bin/ctags"
 
 ## load user .zshrc configuration file
 #
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
 
-export PATH="$PATH:/usr/local/sbin:$HOME/bin:$HOME/.gitscripts:$HOME/android/android-sdk-linux/tools:$HOME/android/android-sdk-macosx/tools:$HOME/android/android-sdk-linux/platform-tools:$HOME/android/android-ndk-r7:$HOME/node_modules/coffee-script/bin"
+export PATH="$HOME/bin:$HOME/.gitscripts:$HOME/android/android-sdk-linux/tools:$HOME/android/android-sdk-macosx/tools:$HOME/android/android-sdk-linux/platform-tools:$HOME/android/android-ndk-r7:$HOME/node_modules/coffee-script/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 export SVN_EDITOR="vim"
 export GDK_NATIVE_WINDOWS=1
 export JAVA_HOME="/usr/lib/jvm/java-6-openjdk/"
