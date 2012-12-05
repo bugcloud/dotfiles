@@ -14,7 +14,6 @@ NeoBundle 'git://github.com/Shougo/neosnippet.git'
 NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
 NeoBundle 'git://github.com/Shougo/unite.vim.git'
 NeoBundle 'git://github.com/Shougo/vimproc.git'
-NeoBundle 'git://github.com/Shougo/vimshell.git'
 NeoBundle 'git://github.com/Shougo/vinarise.git'
 NeoBundle 'git://github.com/kchmck/vim-coffee-script.git'
 NeoBundle 'git://github.com/altercation/vim-colors-solarized.git'
@@ -26,7 +25,6 @@ NeoBundle 'git://github.com/tpope/vim-cucumber.git'
 NeoBundle 'git://github.com/tpope/vim-haml.git'
 NeoBundle 'git://github.com/tpope/vim-rake.git'
 NeoBundle 'git://github.com/tpope/vim-endwise.git'
-NeoBundle 'git://github.com/motemen/git-vim.git'
 NeoBundle 'git://github.com/scrooloose/syntastic.git'
 NeoBundle 'git://github.com/ujihisa/neco-ruby.git'
 NeoBundle 'git://github.com/koron/nyancat-vim.git'
@@ -145,10 +143,6 @@ let g:rails_level=4
 let g:rails_default_file="app/controllers/application.rb"
 let g:rails_default_database="sqlite3"
 
-"git
-set statusline=%{GitBranch()}
-
-nmap ,l :call PHPLint()<CR>
 imap <Nul> <C-x><C-o>
 let g:treeExplVertical=1
 let g:treeExplWinSize=30
@@ -160,15 +154,6 @@ autocmd FileType php :map! =var <CR><LEFT><LEFT><DEL><DEL>var <CR><UP>
 autocmd FileType php :map! =php <?php  ?><LEFT><LEFT><LEFT>
 autocmd FileType php inoremap <S-a><S-r> ->
 autocmd FileType php inoremap <S-a><S-a><S-r> =>
-
-"""VimShell
-" ,is: シェルを起動
-nnoremap <silent> ,is :VimShell<CR>
-" ,irb: irbを非同期で起動
-nnoremap <silent> ,irb :VimShellInteractive irb<CR>
-" ,ss: 非同期で開いたインタプリタに現在の行を評価させる
-nnoremap <silent> ,ss <S-v>:VimShellSendString<CR>
-vmap <silent> ,ss :VimShellSendString<CR>
 
 """ Unite.vim
 " 起動時にインサートモードで開始
@@ -223,11 +208,6 @@ function InsertTabWrapper()
   endif
 endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-
-function PHPLint()
-  let result = system( &ft . ' -l ' . bufname(""))
-  echo result
-endfunction
 
 function! RTrim()
   let s:cursor = getpos(".")
