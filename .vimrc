@@ -43,6 +43,10 @@ NeoBundle 'git://github.com/vim-scripts/sudo.vim.git'
 NeoBundle 'git://github.com/vim-scripts/toggle_mouse.git'
 NeoBundle 'git://github.com/tomtom/tcomment_vim.git'
 NeoBundle 'git://github.com/honza/snipmate-snippets.git'
+NeoBundle 'git://github.com/kana/vim-textobj-user.git'
+NeoBundle 'git://github.com/rhysd/vim-textobj-ruby.git'
+NeoBundle 'git://github.com/rhysd/unite-ruby-require.vim.git'
+NeoBundle 'git://github.com/rhysd/neco-ruby-keyword-args.git'
 
 filetype plugin on
 filetype indent on
@@ -191,6 +195,9 @@ nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mr
 " grep
 let g:unite_source_grep_default_opts = '-iRHn'
 nnoremap <silent> ,ug :Unite grep:./:%<CR>
+
+""" Using rbenv Ruby in Unite
+let g:unite_source_ruby_require_ruby_command = '$HOME/.rbenv/shims/ruby'
 
 " unite.vim上でのキーマッピング
 autocmd FileType unite call s:unite_my_settings()
