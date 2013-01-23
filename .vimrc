@@ -35,6 +35,7 @@ NeoBundle 'git://github.com/taka84u9/vim-ref-ri.git'
 NeoBundle 'git://github.com/mattn/hahhah-vim.git'
 NeoBundle 'git://github.com/mattn/webapi-vim.git'
 NeoBundle 'git://github.com/mattn/gal-vim.git'
+NeoBundle 'git://github.com/mattn/zencoding-vim.git'
 NeoBundle 'git://github.com/othree/html5.vim.git'
 NeoBundle 'git://github.com/kien/rainbow_parentheses.vim.git'
 NeoBundle 'git://github.com/vim-scripts/sudo.vim.git'
@@ -272,5 +273,44 @@ nnoremap ,t :<C-u>call Endtagcomment()<CR>
 let g:ref_open = 'vsplit'
 let g:ref_refe_cmd = "rurema"
 let g:ref_refe_version = 2
+
+" zencoding
+let g:user_zen_settings = {
+  \  'lang' : 'ja',
+  \  'html' : {
+  \    'filters' : 'html'
+  \  },
+  \  'php' : {
+  \    'extends' : 'html',
+  \    'filters' : 'html,c',
+  \  },
+  \  'css' : {
+  \    'filters' : 'fc',
+  \  },
+  \  'javascript' : {
+  \    'snippets' : {
+  \      'jq' : "\\$(function() {\n\t${cursor}${child}\n});",
+  \      'jq:each' : "\\$.each(arr, function(index, item)\n\t\\${child}\n});",
+  \      'fn' : "(function() {\n\t${cursor}\n})();",
+  \      'tm' : "setTimeout(function() {\n\t${cursor}\n}, 100);",
+  \      'int' : "setInterval(function() {\n\t${cursor}\n}, 100);",
+  \    },
+  \  },
+  \  'coffee' : {
+  \    'snippets' : {
+  \      'jq' : "\\$ ->\n\t${cursor}${child}",
+  \      'jq:each' : "\\$.each arr, (index, item) ->\n\t${child}",
+  \      'fn' : "() ->\n\t${cursor}",
+  \      'tm' : "setTimeout () ->\n\t${cursor}\n, 100",
+  \      'int' : "setInterval () ->\n\t${cursor}\n, 100",
+  \    },
+  \  },
+  \  'haml' : {
+  \    'filters' : 'html'
+  \  },
+  \  'erb' : {
+  \    'filters' : 'html'
+  \  },
+  \}
 
 nnoremap ,rr :<C-U>Ref refe<Space>
