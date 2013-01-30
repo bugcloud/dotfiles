@@ -20,3 +20,4 @@
   addw = !"git diff -w --no-color | git apply --cached"
 [core]
   editor = vim
+  excludesfile = ~/.gitignore
