@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/nagino/Working/aaa/haken-kenpo/www2/stg_kenpo/template/haken-kenpo/hokenjigyou'
-let g:netrw_dirhist_2='/home/nagino/Working/aaa/haken-kenpo/www2/stg_kenpo/htdocs/hokenjigyou'
-let g:netrw_dirhist_3='/home/nagino/Working/aaa/haken-kenpo/www2/stg_kenpo/htdocs/kenshin_inc'
