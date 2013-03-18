@@ -376,7 +376,7 @@ alias ctags="`brew --prefix`/bin/ctags"
 #
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
 
-export PATH="$HOME/bin:$HOME/.gitscripts:$HOME/android/android-sdk-linux/tools:$HOME/android/android-sdk-macosx/tools:$HOME/android/android-sdk-linux/platform-tools:$HOME/android/android-ndk-r7:$HOME/node_modules/coffee-script/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="$HOME/bin:$HOME/.gitscripts:$HOME/node_modules/coffee-script/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 export SVN_EDITOR="vim"
 export GDK_NATIVE_WINDOWS=1
 export JAVA_HOME="/usr/lib/jvm/java-6-openjdk/"
@@ -391,3 +391,6 @@ fi
 #fi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
