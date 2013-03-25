@@ -47,6 +47,7 @@ NeoBundle 'git://github.com/kana/vim-textobj-user.git'
 NeoBundle 'git://github.com/rhysd/vim-textobj-ruby.git'
 NeoBundle 'git://github.com/rhysd/unite-ruby-require.vim.git'
 NeoBundle 'git://github.com/rhysd/neco-ruby-keyword-args.git'
+NeoBundle 'git://github.com/rking/ag.vim.git'
 
 filetype plugin on
 filetype indent on
@@ -160,6 +161,12 @@ autocmd FileType php inoremap <S-a><S-a><S-r> =>
 """ Unite.vim
 " 起動時にインサートモードで開始
 let g:unite_enable_start_insert = 1
+" unite-grepのバックエンドをagに
+let g:unite_source_grep_command = 'ag'
+let g:unite_source_grep_default_opts = '--nocolor --nogroup'
+let g:unite_source_grep_recursive_opt = ''
+let g:unite_source_grep_max_candidates = 200
+
 
 " インサート／ノーマルどちらからでも呼び出せるようにキーマップ
 nnoremap <silent> <C-f> :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
