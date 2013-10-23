@@ -48,6 +48,7 @@ NeoBundle 'git://github.com/rhysd/unite-ruby-require.vim.git'
 NeoBundle 'git://github.com/rhysd/neco-ruby-keyword-args.git'
 NeoBundle 'git://github.com/rking/ag.vim.git'
 NeoBundle 'git://github.com/yuratomo/w3m.vim.git'
+NeoBundle 'git://github.com/editorconfig/editorconfig-vim.git'
 
 filetype plugin on
 filetype indent on

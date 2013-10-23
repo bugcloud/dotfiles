@@ -1,0 +1,21 @@
+; This file is for unifying the coding style for different editors and IDEs.
+; More information at http://EditorConfig.org
+
+root = true
+
+[Makefile]
+indent_style = tab
+indent_size = 2
+
+[README.md]
+indent_style = space
+indent_size = 4
+
+[vimrc]
+indent_style = space
+indent_size = 2
+
+[zshrc]
+indent_style = space
+indent_size = 4
+
