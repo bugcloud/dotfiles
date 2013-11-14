@@ -371,6 +371,9 @@ alias :vsp='tmux split-window -h'
 alias :sp='tmux split-window -v'
 # Only Mac OS X
 alias ctags="`brew --prefix`/bin/ctags"
+export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
+alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 
 ## load user .zshrc configuration file
 #
@@ -378,19 +381,5 @@ alias ctags="`brew --prefix`/bin/ctags"
 
 export PATH="$HOME/bin:$HOME/.gitscripts:$HOME/node_modules/coffee-script/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 export SVN_EDITOR="vim"
-export GDK_NATIVE_WINDOWS=1
 export JAVA_HOME="/usr/lib/jvm/java-6-openjdk/"
-export OPENCV_PACKAGE_DIR="$HOME/workspace/OpenCV"
 
-if [[ -s $HOME/.rvm/scripts/rvm ]]; then
-  source "$HOME/.rvm/scripts/rvm"
-fi
-
-#if [[ -f $HOME/.nave/nave.sh ]]; then
-#  $HOME/.nave/nave.sh use latest
-#fi
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
