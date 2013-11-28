@@ -49,6 +49,7 @@ NeoBundle 'git://github.com/rhysd/neco-ruby-keyword-args.git'
 NeoBundle 'git://github.com/rking/ag.vim.git'
 NeoBundle 'git://github.com/yuratomo/w3m.vim.git'
 NeoBundle 'git://github.com/editorconfig/editorconfig-vim.git'
+NeoBundle 'git://github.com/osyo-manga/vim-over.git'
 
 filetype plugin on
 filetype indent on
@@ -83,6 +84,7 @@ set wildmode=list:full
 autocmd BufWritePre * call RTrim()
 
 "Global Key binds
+let mapleader = ","
 imap {} {}<Left>
 imap [] []<Left>
 imap () ()<Left>
@@ -158,6 +160,12 @@ autocmd FileType php :map! =var <CR><LEFT><LEFT><DEL><DEL>var <CR><UP>
 autocmd FileType php :map! =php <?php  ?><LEFT><LEFT><LEFT>
 autocmd FileType php inoremap <S-a><S-r> ->
 autocmd FileType php inoremap <S-a><S-a><S-r> =>
+
+""" over.vim
+" over.vimの起動
+nnoremap <silent> <Leader>m :OverCommandLine<CR>
+" カーソル下の単語をハイライト付きで置換
+nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
 
 """ Unite.vim
 " 起動時にインサートモードで開始
