@@ -359,6 +359,7 @@ alias l='ls -CF'
 alias rm='rm -i'
 alias cd='pushd'
 alias bd='popd'
+alias ..='cd ..'
 alias showpubip="GET checkip.dyndns.org|grep -o '[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}'"
 alias bex='bundle exec'
 alias r='bundle exec rails'
