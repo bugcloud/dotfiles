@@ -5,7 +5,7 @@
   ui = true
 [alias]
   st = status
-  df = diff
+  df = diff --word-diff
   co = checkout
   br = branch
   ca = commit -a
