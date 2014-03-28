@@ -138,7 +138,7 @@ autocmd FileType html,markdown set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-"autocmd FileType php set tabstop=4 softtabstop=4 shiftwidth=4
+autocmd FileType php set tabstop=4 softtabstop=4 shiftwidth=4
 "autocmd FileType php set noexpandtab
 autocmd FileType c set omnifunc=ccomplete#Complete
 autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
@@ -151,11 +151,6 @@ let g:rails_default_file="app/controllers/application.rb"
 let g:rails_default_database="sqlite3"
 
 imap <Nul> <C-x><C-o>
-let g:treeExplVertical=1
-let g:treeExplWinSize=30
-inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
-nnoremap <C-P> :call PhpDocSingle()<CR>
-vnoremap <C-P> :call PhpDocRange()<CR>
 autocmd FileType php :map! =function <CR><LEFT><LEFT><DEL><DEL>function  {<CR>}<CR><UP><UP><RIGHT><RIGHT><RIGHT><RIGHT>
 autocmd FileType php :map! =var <CR><LEFT><LEFT><DEL><DEL>var <CR><UP>
 autocmd FileType php :map! =php <?php  ?><LEFT><LEFT><LEFT>
