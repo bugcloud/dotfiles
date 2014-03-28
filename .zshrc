@@ -382,5 +382,4 @@ alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"
 
 export PATH="$HOME/bin:$HOME/.gitscripts:$HOME/node_modules/coffee-script/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 export SVN_EDITOR="vim"
-export JAVA_HOME="/usr/lib/jvm/java-6-openjdk/"
 
