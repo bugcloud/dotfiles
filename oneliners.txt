@@ -20,7 +20,7 @@ iconv -s -f SHIFT_JIS -t UTF-8
 find . -name '*.java' | xargs nkf --overwrite -w -Lu --ic=EUC-JP --oc=UTF-8
 
 # git rmしないでrmしたファイルを一括してgit rm
-git status | grep deleted: | awk '{print $3}' | xargs git rm
+git status | grep deleted: | awk '{print $2}' | xargs git rm
 
 # .svnを消す
 rm -rf `find ./ -type d -name .svn ! -regex \.svn/. -print`
