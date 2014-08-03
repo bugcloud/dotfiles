@@ -51,6 +51,7 @@ NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'rizzatti/dash.vim'
 
 filetype plugin on
 filetype indent on
