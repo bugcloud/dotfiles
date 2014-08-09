@@ -140,6 +140,21 @@ autoload zed
 #autoload predict-on
 #predict-off
 
+## zaw
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+zstyle ':chpwd:*' recent-dirs-max 500
+zstyle ':chpwd:*' recent-dirs-default yes
+zstyle ':completion:*' recent-dirs-insert both
+source $HOME/zaw/zaw.zsh
+zstyle ':filter-select:highlight' selected fg=black,bg=white,standout
+zstyle ':filter-select' case-insensitive yes
+bindkey '^B' zaw-cdr
+bindkey '^R' zaw-history
+bindkey '^X^F' zaw-git-files
+bindkey '^X^B' zaw-git-branches
+bindkey '^X^P' zaw-process
+bindkey '^A' zaw-tmux
 
 ## Alias configuration
 #
@@ -384,3 +399,4 @@ export PATH="$HOME/bin:$HOME/.gitscripts:$HOME/node_modules/coffee-script/bin:/u
 export SVN_EDITOR="vim"
 
 eval "$(rbenv init -)"
+
