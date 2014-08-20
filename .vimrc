@@ -80,6 +80,8 @@ set nocompatible
 set laststatus=2
 set encoding=utf-8
 set clipboard+=unnamed
+set nobackup
+set noundofile
 " コマンドモードの補完で大文字小文字を無視
 set wildignorecase
 set wildmode=list:full
