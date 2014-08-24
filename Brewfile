@@ -53,6 +53,7 @@ cask install google-chrome
 cask install handbrake
 cask install imageoptim
 cask install iterm2
+cask install karabiner
 cask install kobito
 cask install virtualbox
 cask install vagrant
