@@ -6,17 +6,13 @@ update
 
 # Add Repository
 tap homebrew/versions || true
-tap phinze/homebrew-cask || true
 tap homebrew/binary || true
-tap josegonzalez/php || true
-tap raggi/ale || true
 
 # Packages
 install autoconf
 install automake
 install cmake
 install curl
-install curl-ca-bundle
 install fontconfig
 install wget
 install w3m
@@ -26,19 +22,17 @@ install tig
 install mercurial
 install brew-cask
 install readline
-install zlib
 install --HEAD ruby-build
 install node
 install gettext
 install openssl
-install openssl-osx-ca
 install the_silver_searcher
 install tmux
+install reattach-to-user-namespace
 install cocot
 install tree
 install vim
 install macvim
-install php54
 install mogenerator
 install nginx
 install mysql
@@ -65,9 +59,8 @@ cask install vagrant
 cask install reflector
 cask install skitch
 cask install skype
+cask install slack
 cask install slicy
-cask install sublime-text
-cask install unity3d
 cask install vlc
 cask install xtrafinder
 
