@@ -52,6 +52,7 @@ NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'rizzatti/dash.vim'
+NeoBundle 'terryma/vim-multiple-cursors'
 
 filetype plugin on
 filetype indent on
