@@ -64,6 +64,7 @@ cask install slack
 cask install slicy
 cask install vlc
 cask install xtrafinder
+cask install clipmenu
 
 # Remove outdated versions
 cleanup
