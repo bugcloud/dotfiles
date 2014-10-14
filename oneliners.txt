@@ -7,7 +7,7 @@ sed -n 'N,NNp' FILE_NAME
 # grep + sed (.originalというファイル名でバックアップを作成)
 # バックアップがいらないときは sed -i '' 's/SOMETHING/REPLACE/g'
 grep -lr SOMETHING * | grep -v 'EXCEPT_PATH' | xargs sed -i '.original' 's/SOMETHING/REPLACE/g'
-ag -l --depth 100 --ignore IGNORE_PATTERN SEARCH_PATTERN | xargs sed -i '.original' 's/SOMETHING/REPLACE/g'
+pt -l --depth 100 --ignore IGNORE_PATTERN SEARCH_PATTERN | xargs sed -i '.original' 's/SOMETHING/REPLACE/g'
 
 # findとsedでディレクトリ内のファイルからある文字列を一括置換する
 #  b、t、B、Eで、タブ、スペース、空行の違いが無視されます。

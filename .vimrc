@@ -170,11 +170,15 @@ nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
 """ Unite.vim
 " 起動時にインサートモードで開始
 let g:unite_enable_start_insert = 1
-" unite-grepのバックエンドをagに
-let g:unite_source_grep_command = 'ag'
-let g:unite_source_grep_default_opts = '--nocolor --nogroup'
-let g:unite_source_grep_recursive_opt = ''
-let g:unite_source_grep_max_candidates = 200
+" unite-grepのバックエンドをptに
+" https://github.com/monochromegane/the_platinum_searcher
+nnoremap <silent> ,g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+if executable('pt')
+  let g:unite_source_grep_command = 'pt'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor'
+  let g:unite_source_grep_recursive_opt = ''
+  let g:unite_source_grep_encoding = 'utf-8'
+endif
 
 
 " インサート／ノーマルどちらからでも呼び出せるようにキーマップ
