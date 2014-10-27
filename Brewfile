@@ -65,6 +65,8 @@ cask install slicy
 cask install vlc
 cask install xtrafinder
 cask install clipmenu
+cask install droplr
+cask install mou
 
 # Remove outdated versions
 cleanup
