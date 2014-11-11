@@ -7,6 +7,7 @@ update
 # Add Repository
 tap homebrew/versions || true
 tap homebrew/binary || true
+tap caskroom/fonts || true
 
 # Packages
 install autoconf
@@ -67,6 +68,12 @@ cask install xtrafinder
 cask install clipmenu
 cask install droplr
 cask install mou
+
+# fonts
+cask install font-roboto
+cask install font-noto-sans-japanese
+cask install font-noto-sans
+cask install font-noto-serif
 
 # Remove outdated versions
 cleanup
