@@ -68,7 +68,7 @@ brew cask install slicy
 brew cask install vlc
 brew cask install xtrafinder
 brew cask install clipmenu
-brew cask install droplr
+brew cask install gyazo
 brew cask install mou
 
 # fonts
