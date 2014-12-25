@@ -83,6 +83,7 @@ set encoding=utf-8
 set clipboard+=unnamed
 set nobackup
 set noundofile
+set display=lastline
 " コマンドモードの補完で大文字小文字を無視
 set wildignorecase
 set wildmode=list:full
@@ -96,6 +97,9 @@ imap () ()<Left>
 imap "" ""<Left>
 imap '' ''<Left>
 imap <> <><Left>
+nnoremap Y y$
+nnoremap + <C-a>
+nnoremap - <C-x>
 " Visualモード時のヤンクをクリップボードにも入れる
 vmap ,y "+y
 " switch window
