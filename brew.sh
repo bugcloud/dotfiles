@@ -69,7 +69,7 @@ brew cask install vlc
 brew cask install xtrafinder
 brew cask install clipmenu
 brew cask install gyazo
-brew cask install mou
+brew cask install haroopad
 
 # fonts
 brew cask install font-roboto
