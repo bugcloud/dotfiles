@@ -40,4 +40,4 @@ cat ACCESS_LOG | cut -f 1 -d ' ' | sort | uniq -c | sort -nr
 qlmanage -t -s 1000 -o . ***.svg
 
 # homebrew-caskでインストールしたアプリをアップグレード
-for c in `brew cask list`; do ! brew cask info $c | grep -qF "Not installed" || brew cask install $c; done
+for c in `brew cask list`; do ! brew cask info $c | grep -qF "Not installed" | brew cask install $c; done
