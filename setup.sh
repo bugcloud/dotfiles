@@ -6,3 +6,4 @@ do
   ln -s $HOME/dotfiles/$file $HOME/$file
 done
 
+wget -O ~/.gibo-completion.zsh https://raw.githubusercontent.com/simonwhitaker/gibo/master/gibo-completion.zsh

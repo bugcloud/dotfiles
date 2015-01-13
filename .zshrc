@@ -24,6 +24,7 @@ ZSH_THEME="robbyrussell"
 plugins=(git gem compleat rails ruby heroku)
 
 source $ZSH/oh-my-zsh.sh
+source ~/.gibo-completion.zsh
 
 # Customize to your needs...
 #

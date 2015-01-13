@@ -42,6 +42,7 @@ brew install mysql
 brew install imagemagick
 brew install rbenv
 brew install rbenv-default-gems
+brew install gibo
 
 # .dmg
 brew cask install alfred
