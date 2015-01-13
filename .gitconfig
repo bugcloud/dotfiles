@@ -19,6 +19,7 @@
   la = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d%Creset'
   addw = !"git diff -w --no-color | git apply --cached"
   gp = grep --line-number --show-function --color --heading --break
+  delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
 [core]
   editor = vim
   excludesfile = ~/.gitignore
