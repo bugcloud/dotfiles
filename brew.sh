@@ -43,6 +43,7 @@ brew install imagemagick
 brew install rbenv
 brew install rbenv-default-gems
 brew install gibo
+brew install direnv
 
 # .dmg
 brew cask install alfred

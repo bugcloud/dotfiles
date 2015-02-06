@@ -379,10 +379,7 @@ alias ..='cd ..'
 alias showpubip="GET checkip.dyndns.org|grep -o '[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}'"
 alias bex='bundle exec'
 alias r='bundle exec rails'
-alias pd='bundle exec padrino'
 alias rspec='bundle exec rspec -fs --color'
-alias ccb='bundle exec cucumber --guess'
-alias nave='~/.nave/nave.sh'
 alias cmdfu='cmdline-fu matching'
 alias :vsp='tmux split-window -h'
 alias :sp='tmux split-window -v'
@@ -400,4 +397,6 @@ export PATH="$HOME/bin:$HOME/.gitscripts:$HOME/node_modules/coffee-script/bin:/u
 export SVN_EDITOR="vim"
 
 eval "$(rbenv init -)"
+eval "$(direnv hook zsh)"
+export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2375
 
