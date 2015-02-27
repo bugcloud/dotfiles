@@ -9,12 +9,6 @@ AwesomePrint.pry!
   end
 end
 
-# pry-debuggerのショートカット
-Pry.commands.alias_command 'c', 'continue'
-Pry.commands.alias_command 's', 'step'
-Pry.commands.alias_command 'n', 'next'
-Pry.commands.alias_command 'f', 'finish'
-
 if defined? Hirb
   # Slightly dirty hack to fully support in-session Hirb.disable/enable toggling
   Hirb::View.instance_eval do
