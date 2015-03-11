@@ -1,20 +1,34 @@
 set nocompatible
 filetype off
 
+" Skip initialization for vim-tiny or vim-small.
+if !1 | finish | endif
+
 if has('vim_starting')
-  set runtimepath+=~/.bundle/neobundle.vim
-  call neobundle#rc(expand('~/.bundle'))
+  if &compatible
+    set nocompatible
+  endif
+
+  " Required:
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
+
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'Rename'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'Shougo/echodoc.vim'
 NeoBundle 'Shougo/neocomplcache.vim'
 NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc.vim'
 NeoBundle 'Shougo/vinarise.vim'
+NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'Lokaltog/vim-powerline'
@@ -54,8 +68,14 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'rizzatti/dash.vim'
 NeoBundle 'terryma/vim-multiple-cursors'
 
-filetype plugin on
-filetype indent on
+call neobundle#end()
+
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+
 syntax enable
 if has('gui_running')
   set background=light
@@ -77,7 +97,6 @@ set tabstop=2 softtabstop=2 shiftwidth=2
 set expandtab
 set list
 set listchars=tab:>-
-set nocompatible
 set laststatus=2
 set encoding=utf-8
 set clipboard+=unnamed
@@ -177,16 +196,6 @@ nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
 """ Unite.vim
 " 起動時にインサートモードで開始
 let g:unite_enable_start_insert = 1
-" unite-grepのバックエンドをptに
-" https://github.com/monochromegane/the_platinum_searcher
-nnoremap <silent> ,g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-if executable('pt')
-  let g:unite_source_grep_command = 'pt'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor'
-  let g:unite_source_grep_recursive_opt = ''
-  let g:unite_source_grep_encoding = 'utf-8'
-endif
-
 
 " インサート／ノーマルどちらからでも呼び出せるようにキーマップ
 nnoremap <silent> <C-f> :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
