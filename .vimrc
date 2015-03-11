@@ -108,6 +108,9 @@ nmap <C-k> <C-W>k
 nmap <C-h> <C-w>h
 nmap <C-l> <C-w>l
 
+" Insertモードをjjで抜ける
+inoremap <silent> jj <ESC>
+
 "Powerline
 let g:Powerline_symbols = 'fancy'
 
