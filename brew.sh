@@ -46,7 +46,6 @@ brew install gibo
 brew install direnv
 
 # .dmg
-brew cask install alfred
 brew cask install appcleaner
 brew cask install bettertouchtool
 brew cask install cheatsheet
