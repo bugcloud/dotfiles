@@ -61,10 +61,8 @@ brew cask install karabiner
 brew cask install kobito
 brew cask install virtualbox
 brew cask install vagrant
-brew cask install reflector
 brew cask install skitch
 brew cask install skype
-brew cask install slack
 brew cask install slicy
 brew cask install vlc
 brew cask install xtrafinder
