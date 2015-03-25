@@ -1,0 +1,10 @@
+# remove old plugins
+rm -fr ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins/*
+
+# install Alcatraz
+curl -fsSL https://raw.github.com/supermarin/Alcatraz/master/Scripts/install.sh | sh
+
+# install plugins from [Window] > [Package Manager]
+## UncrustifyPlugin
+## VVDocumenter-Xcode
+## XVim
