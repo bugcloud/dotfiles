@@ -9,7 +9,6 @@ brew update
 # Add Repository
 brew tap homebrew/versions || true
 brew tap homebrew/binary || true
-brew tap caskroom/fonts || true
 
 # Packages
 brew install autoconf
@@ -69,12 +68,6 @@ brew cask install xtrafinder
 brew cask install clipmenu
 brew cask install gyazo
 brew cask install atom
-
-# fonts
-brew cask install font-roboto
-brew cask install font-noto-sans-japanese
-brew cask install font-noto-sans
-brew cask install font-noto-serif
 
 # Remove outdated versions
 brew cleanup
