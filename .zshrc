@@ -141,22 +141,6 @@ autoload zed
 #autoload predict-on
 #predict-off
 
-## zaw
-autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
-add-zsh-hook chpwd chpwd_recent_dirs
-zstyle ':chpwd:*' recent-dirs-max 500
-zstyle ':chpwd:*' recent-dirs-default yes
-zstyle ':completion:*' recent-dirs-insert both
-source $HOME/zaw/zaw.zsh
-zstyle ':filter-select:highlight' selected fg=black,bg=white,standout
-zstyle ':filter-select' case-insensitive yes
-bindkey '^B' zaw-cdr
-bindkey '^R' zaw-history
-bindkey '^X^F' zaw-git-files
-bindkey '^X^B' zaw-git-branches
-bindkey '^X^P' zaw-process
-bindkey '^T' zaw-tmux
-
 ## Alias configuration
 #
 # expand aliases before completing
@@ -400,3 +384,8 @@ eval "$(rbenv init -)"
 eval "$(direnv hook zsh)"
 export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2375
 
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+# https://github.com/junegunn/fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

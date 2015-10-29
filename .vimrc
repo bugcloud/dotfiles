@@ -216,7 +216,6 @@ nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
 " 全部乗せ
 nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 " grep
-let g:unite_source_grep_default_opts = '-iRHn'
 nnoremap <silent> ,ug :Unite grep:./:%<CR>
 
 """ Using rbenv Ruby in Unite
@@ -351,3 +350,6 @@ let g:user_zen_settings = {
   \}
 
 nnoremap ,rr :<C-U>Ref refe<Space>
+
+" https://github.com/junegunn/fzf#install-as-vim-plugin
+set rtp+=~/.fzf

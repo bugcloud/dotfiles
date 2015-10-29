@@ -7,3 +7,6 @@ do
 done
 
 wget -O ~/.gibo-completion.zsh https://raw.githubusercontent.com/simonwhitaker/gibo/master/gibo-completion.zsh
+
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
