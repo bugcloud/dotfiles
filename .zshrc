@@ -1,68 +1,23 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
-
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git gem compleat rails ruby heroku)
-
-source $ZSH/oh-my-zsh.sh
-source ~/.gibo-completion.zsh
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
 
 # Customize to your needs...
-#
-#
-#
-# users generic .zshrc file for zsh(1)
+source ~/.gibo-completion.zsh
 
 ## Environment variable configuration
 #
 # LANG
 #
 export LANG=ja_JP.UTF-8
-
-
-## Default shell configuration
-#
-# set prompt
-#
-setopt prompt_subst
-autoload colors
-colors
-#case ${UID} in
-#0)
-#    PROMPT="%B%{${fg[yellow]}%}%/#%{${reset_color}%}%b "
-#    PROMPT2="%B%{${fg[red]}%}%_#%{${reset_color}%}%b "
-#    SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
-#    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
-#        PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
-#    ;;
-#*)
-#    PROMPT="%{${fg[yellow]}%}%/%%%{${reset_color}%} "
-#    PROMPT2="%{${fg[red]}%}%_%%%{${reset_color}%} "
-#    SPROMPT="%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
-#    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
-#        PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
-#    ;;
-#esac
-#RPROMPT=$'%B%{\e[$[32+$RANDOM%5]m%}{%n[@]$HOST}%{\e[m%}'
 
 # auto change directory
 #
@@ -96,13 +51,6 @@ setopt extended_history hist_ignore_dups
 setopt pushd_ignore_dups rm_star_silent sun_keyboard_hack
 setopt extended_glob list_types no_beep always_last_prompt
 setopt cdable_vars sh_word_split auto_param_keys
-
-## Keybind configuration
-#
-# emacs like keybind (e.x. Ctrl-a goes to head of a line and Ctrl-e goes
-#   to end of it)
-#
-bindkey -d
 
 # historical backward/forward search with linehead string binded to ^P/^N
 #
@@ -164,100 +112,38 @@ alias df="df -h"
 
 alias su="su -l"
 
-case "${OSTYPE}" in
-darwin*)
-    alias updateports="sudo port selfupdate; sudo port outdated"
-    alias portupgrade="sudo port upgrade installed"
-    ;;
-freebsd*)
-    case ${UID} in
-    0)
-        updateports()
-        {
-            if [ -f /usr/ports/.portsnap.INDEX ]
-            then
-                portsnap fetch update
-            else
-                portsnap fetch extract update
-            fi
-            (cd /usr/ports/; make index)
-
-            portversion -v -l \<
-        }
-        alias appsupgrade='pkgdb -F && BATCH=YES NO_CHECKSUM=YES portupgrade -a'
-        ;;
-    esac
-    ;;
-esac
-
-
-## terminal configuration
-#
-unset LSCOLORS
-case "${TERM}" in
-xterm)
-    export TERM=xterm-color
-    ;;
-kterm)
-    export TERM=kterm-color
-    # set BackSpace control character
-    stty erase
-    ;;
-cons25)
-    unset LANG
-    export LSCOLORS=ExFxCxdxBxegedabagacad
-    export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-    zstyle ':completion:*' list-colors \
-        'di=;34;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
-    ;;
-esac
-
-# set terminal title including current directory
-#
-case "${TERM}" in
-kterm*|xterm*)
-    precmd() {
-        echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
-    }
-    export LSCOLORS=exfxcxdxbxegedabagacad
-    export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-    zstyle ':completion:*' list-colors \
-        'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
-    ;;
-esac
-
 #################################################################################
 # to use git HEAD^^
 typeset -A abbreviations
 abbreviations=(
-	"L"    "| $PAGER"
-	"G"    "| grep"
+    "L"    "| $PAGER"
+    "G"    "| grep"
 
-	"HEAD^"     "HEAD\\^"
-	"HEAD^^"    "HEAD\\^\\^"
-	"HEAD^^^"   "HEAD\\^\\^\\^"
-	"HEAD^^^^"  "HEAD\\^\\^\\^\\^\\^"
-	"HEAD^^^^^" "HEAD\\^\\^\\^\\^\\^"
+    "HEAD^"     "HEAD\\^"
+    "HEAD^^"    "HEAD\\^\\^"
+    "HEAD^^^"   "HEAD\\^\\^\\^"
+    "HEAD^^^^"  "HEAD\\^\\^\\^\\^\\^"
+    "HEAD^^^^^" "HEAD\\^\\^\\^\\^\\^"
 )
 
 magic-abbrev-expand () {
-	local MATCH
-	LBUFFER=${LBUFFER%%(#m)[-_a-zA-Z0-9^]#}
-	LBUFFER+=${abbreviations[$MATCH]:-$MATCH}
+    local MATCH
+    LBUFFER=${LBUFFER%%(#m)[-_a-zA-Z0-9^]#}
+    LBUFFER+=${abbreviations[$MATCH]:-$MATCH}
 }
 
 magic-abbrev-expand-and-insert () {
-	magic-abbrev-expand
-	zle self-insert
+    magic-abbrev-expand
+    zle self-insert
 }
 
 magic-abbrev-expand-and-accept () {
-	magic-abbrev-expand
-	zle accept-line
+    magic-abbrev-expand
+    zle accept-line
 }
 
 no-magic-abbrev-expand () {
-	LBUFFER+=' '
+    LBUFFER+=' '
 }
 
 zle -N magic-abbrev-expand
@@ -271,88 +157,6 @@ bindkey "."   magic-abbrev-expand-and-insert
 bindkey "^x " no-magic-abbrev-expand
 #################################################################################
 
-#################################################################################
-#
-# Copied from
-# http://intridea.com/2011/5/18/its-not-enough-to-bash-in-heads-youve-got-to-bash-in-minds-with-zsh
-#
-# Shows little symbol '±' if you're currently at a git repo and '○' all other times
-function prompt_char {
-    git branch >/dev/null 2>/dev/null && echo '±' && return
-    echo '○'
-}
-
-function virtualenv_info {
-    [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
-}
-
-
-# Build the main prompt
-if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
-    PROMPT='%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info)${return_code}$(git_prompt_status)%{$reset_color%}
-$(virtualenv_info)$(prompt_char) '
-
-    ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$fg[magenta]%}"
-    ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-    ZSH_THEME_GIT_PROMPT_DIRTY=""
-    ZSH_THEME_GIT_PROMPT_CLEAN=""
-
-    # Display exitcode on the right when >0
-    return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
-
-    # Loads rvm info to the right side of the zsh prompt showing: ruby-version@gemset-name
-    # RPROMPT='$(~/.rvm/bin/rvm-prompt)'
-
-    # Displays different symbols (simultaneously) depending on the current status of your git repo.
-    ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%} ✚"
-    ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[blue]%} ✹"
-    ZSH_THEME_GIT_PROMPT_DELETED="%{$fg[red]%} ✖"
-    ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[magenta]%} ➜"
-    ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[yellow]%} ═"
-    ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ✭"
-else
-    PROMPT='[%n@%m:%~$(git_prompt_info)]
-%# '
-
-    ZSH_THEME_GIT_PROMPT_PREFIX=" on"
-    ZSH_THEME_GIT_PROMPT_SUFFIX=""
-    ZSH_THEME_GIT_PROMPT_DIRTY=""
-    ZSH_THEME_GIT_PROMPT_CLEAN=""
-
-    # Display exitcode on the right when >0
-    return_code="%(?..%? ↵)"
-
-    RPROMPT='${return_code}$(git_prompt_status)'
-
-    ZSH_THEME_GIT_PROMPT_ADDED=" ✚"
-    ZSH_THEME_GIT_PROMPT_MODIFIED=" ✹"
-    ZSH_THEME_GIT_PROMPT_DELETED=" ✖"
-    ZSH_THEME_GIT_PROMPT_RENAMED=" ➜"
-    ZSH_THEME_GIT_PROMPT_UNMERGED=" ═"
-    ZSH_THEME_GIT_PROMPT_UNTRACKED=" ✭"
-fi
-#################################################################################
-
-#################################################################################
-#
-# Copied from
-# https://github.com/mooz/percol#readme
-#################################################################################
-function exists { which $1 &> /dev/null }
-if exists percol; then
-  function percol_select_history() {
-    local tac
-    exists gtac && tac=gtac || tac=tac
-    BUFFER=$($tac $HISTFILE | sed 's/^: [0-9]*:[0-9]*;//' | percol --query "$LBUFFER")
-    CURSOR=$#BUFFER         # move cursor
-    zle -R -c               # refresh
-  }
-
-  zle -N percol_select_history
-  bindkey '^R' percol_select_history
-fi
-#################################################################################
-
 alias ll='ls -alh'
 alias la='ls -A'
 alias l='ls -CF'
@@ -360,11 +164,7 @@ alias rm='rm -i'
 alias cd='pushd'
 alias bd='popd'
 alias ..='cd ..'
-alias showpubip="GET checkip.dyndns.org|grep -o '[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}'"
 alias bex='bundle exec'
-alias r='bundle exec rails'
-alias rspec='bundle exec rspec -fs --color'
-alias cmdfu='cmdline-fu matching'
 alias :vsp='tmux split-window -h'
 alias :sp='tmux split-window -v'
 # Only Mac OS X
