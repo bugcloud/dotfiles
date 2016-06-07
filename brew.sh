@@ -46,21 +46,17 @@ brew install direnv
 
 # .dmg
 brew cask install appcleaner
-brew cask install bettertouchtool
+brew cask install atom
+brew cask install bitbar
 brew cask install cheatsheet
-brew cask install evernote
 brew cask install filezilla
 brew cask install handbrake
-brew cask install imageoptim
 brew cask install iterm2
-brew cask install karabiner
-brew cask install kobito
 brew cask install virtualbox
 brew cask install vagrant
-brew cask install skype
 brew cask install vlc
 brew cask install xtrafinder
-brew cask install clipmenu
+brew cask install clipy
 brew cask install gyazo
 brew cask install atom
 
