@@ -23,5 +23,8 @@
 [core]
   editor = vim
   excludesfile = ~/.gitignore
+  attributesfile = ~/.gitattributes
 [merge]
   tool = vimdiff
+[diff "image"]
+  command = git imgdiff
