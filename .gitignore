@@ -10,3 +10,5 @@
 *.log
 .vim/bundle/
 .vim/.netrwhist
+.vim/dein
+.vim/init.vim

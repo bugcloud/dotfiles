@@ -1,80 +1,38 @@
-set nocompatible
 filetype off
 
 " Skip initialization for vim-tiny or vim-small.
 if !1 | finish | endif
 
-if has('vim_starting')
-  if &compatible
-    set nocompatible
-  endif
+let s:dein_dir = expand('~/.vim/dein')
+" dein.vim 本体
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+if &runtimepath !~# '/dein.vim'
+  if !isdirectory(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+  endif
+  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+endif
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
+
+  let g:rc_dir    = expand('~/.vim/rc')
+  let s:toml      = g:rc_dir . '/dein.toml'
+  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
+
+  call dein#load_toml(s:toml,      {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
+
+  call dein#end()
+  call dein#save_state()
 endif
 
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
+if dein#check_install()
+  call dein#install()
+endif
 
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-NeoBundle 'Rename'
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'Shougo/echodoc.vim'
-NeoBundle 'Shougo/neocomplcache.vim'
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimproc.vim'
-NeoBundle 'Shougo/vinarise.vim'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'Lokaltog/vim-powerline'
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'tpope/vim-cucumber'
-NeoBundle 'tpope/vim-haml'
-NeoBundle 'tpope/vim-rake'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'ujihisa/neco-ruby'
-NeoBundle 'koron/codic-vim'
-NeoBundle 'Sixeight/unite-grep'
-NeoBundle 'thinca/vim-qfreplace'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'taka84u9/vim-ref-ri'
-NeoBundle 'mattn/hahhah-vim'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'othree/html5.vim'
-NeoBundle 'kien/rainbow_parentheses.vim'
-NeoBundle 'vim-scripts/sudo.vim'
-NeoBundle 'vim-scripts/toggle_mouse'
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'rhysd/vim-textobj-ruby'
-NeoBundle 'rhysd/unite-ruby-require.vim'
-NeoBundle 'rhysd/neco-ruby-keyword-args'
-NeoBundle 'rhysd/unite-codic.vim'
-NeoBundle 'rking/ag.vim'
-NeoBundle 'yuratomo/w3m.vim'
-NeoBundle 'editorconfig/editorconfig-vim'
-NeoBundle 'osyo-manga/vim-over'
-NeoBundle 'kannokanno/previm'
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'rizzatti/dash.vim'
-NeoBundle 'terryma/vim-multiple-cursors'
-
-call neobundle#end()
 
 filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
 
 syntax enable
 if has('gui_running')
@@ -110,12 +68,6 @@ autocmd BufWritePre * call RTrim()
 
 "Global Key binds
 let mapleader = ","
-imap {} {}<Left>
-imap [] []<Left>
-imap () ()<Left>
-imap "" ""<Left>
-imap '' ''<Left>
-imap <> <><Left>
 nnoremap Y y$
 nnoremap + <C-a>
 nnoremap - <C-x>
@@ -133,44 +85,76 @@ inoremap <silent> jj <ESC>
 "Powerline
 let g:Powerline_symbols = 'fancy'
 
-" neocomplcache
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_enable_underbar_completion = 1
-let g:neocomplcache_enable_auto_select = 1
-
 " neosnippet
 let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory='~/.bundle/snipmate-snippets/snippets'
 
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
 " Plugin key-mappings.
-imap <C-k> <Plug>(neocomplcache_snippets_expand)
-smap <C-k> <Plug>(neocomplcache_snippets_expand)
-imap <C-U> <Esc>:Unite snippet<CR>
-inoremap <expr><C-g>  neocomplcache#undo_completion()
-inoremap <expr><C-l>  neocomplcache#complete_common_string()
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
-au FileType snippet nmap <buffer><Space>e :e #<CR>
-" snippetの編集
-nmap <Space>e :<C-U>NeoComplCacheEditSnippets<CR>
-au BufRead,BufNewFile *.snip  set filetype=snippet
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html,markdown set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-"autocmd FileType php set noexpandtab
-autocmd FileType c set omnifunc=ccomplete#Complete
-autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 "vim-ruby
 let g:rubycomplete_buffer_loading = 1
@@ -179,13 +163,6 @@ let g:rubycomplete_classes_in_global = 1
 let g:rails_level=4
 let g:rails_default_file="app/controllers/application.rb"
 let g:rails_default_database="sqlite3"
-
-imap <Nul> <C-x><C-o>
-autocmd FileType php :map! =function <CR><LEFT><LEFT><DEL><DEL>function  {<CR>}<CR><UP><UP><RIGHT><RIGHT><RIGHT><RIGHT>
-autocmd FileType php :map! =var <CR><LEFT><LEFT><DEL><DEL>var <CR><UP>
-autocmd FileType php :map! =php <?php  ?><LEFT><LEFT><LEFT>
-autocmd FileType php inoremap <S-a><S-r> ->
-autocmd FileType php inoremap <S-a><S-a><S-r> =>
 
 """ over.vim
 " over.vimの起動
@@ -196,6 +173,9 @@ nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
 """ Unite.vim
 " 起動時にインサートモードで開始
 let g:unite_enable_start_insert = 1
+" 大文字小文字を区別しない
+let g:unite_enable_ignore_case = 1
+let g:unite_enable_smart_case = 1
 
 " インサート／ノーマルどちらからでも呼び出せるようにキーマップ
 nnoremap <silent> <C-f> :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
@@ -217,9 +197,12 @@ nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
 nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 " grep
 nnoremap <silent> ,ug :Unite grep:./:%<CR>
-
-""" Using rbenv Ruby in Unite
-let g:unite_source_ruby_require_ruby_command = '$HOME/.rbenv/shims/ruby'
+" unite grep に ag(The Silver Searcher) を使う
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt = ''
+endif
 
 " unite.vim上でのキーマッピング
 autocmd FileType unite call s:unite_my_settings()
@@ -230,21 +213,6 @@ function! s:unite_my_settings()
   nmap <silent><buffer> <ESC><ESC> q
   imap <silent><buffer> <ESC><ESC> <ESC>q
 endfunction
-
-function InsertTabWrapper()
-  if pumvisible()
-    return "\<c-n>"
-  endif
-  let col = col('.') - 1
-  if !col || getline('.')[col - 1] !~ '\k\|<\|/'
-    return "\<tab>"
-  elseif exists('&omnifunc') && &omnifunc == ''
-    return "\<c-n>"
-  else
-    return "\<c-x>\<c-o>"
-  endif
-endfunction
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 
 function! RTrim()
   let s:cursor = getpos(".")
@@ -305,11 +273,6 @@ endfunction
 let g:endtagcommentFormat = '<!-- /%id%class -->'
 nnoremap ,t :<C-u>call Endtagcomment()<CR>
 
-" ref.vim
-let g:ref_open = 'vsplit'
-let g:ref_refe_cmd = "rurema"
-let g:ref_refe_version = 2
-
 " zencoding
 let g:user_zen_settings = {
   \  'lang' : 'ja',
@@ -348,8 +311,6 @@ let g:user_zen_settings = {
   \    'filters' : 'html'
   \  },
   \}
-
-nnoremap ,rr :<C-U>Ref refe<Space>
 
 " https://github.com/junegunn/fzf#install-as-vim-plugin
 set rtp+=~/.fzf

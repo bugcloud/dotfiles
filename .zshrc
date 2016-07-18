@@ -178,6 +178,9 @@ alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
 
 export PATH="$HOME/bin:$HOME/.gitscripts:$HOME/node_modules/coffee-script/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share/git-core/contrib/diff-highlight:$PATH"
+
+export XDG_CONFIG_HOME=$HOME/.config
+
 export SVN_EDITOR="vim"
 
 eval "$(rbenv init -)"
