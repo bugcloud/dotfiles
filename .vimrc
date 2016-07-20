@@ -89,7 +89,7 @@ inoremap <silent> jj <ESC>
 "Powerline
 let g:Powerline_symbols = 'fancy'
 
-if has('nvim')
+if !has('nvim')
   " neosnippet
   let g:neosnippet#enable_snipmate_compatibility = 1
   let g:neosnippet#snippets_directory='~/.bundle/snipmate-snippets/snippets'
