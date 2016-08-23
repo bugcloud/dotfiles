@@ -15,32 +15,25 @@ brew install autoconf
 brew install automake
 brew install cmake
 brew install curl
-brew install fontconfig
 brew install wget
-brew install w3m
-brew install ctags
 brew install git
 brew install tig
 brew install mercurial
-brew install brew-cask
+brew install brew-cask-completion
 brew install readline
 brew install --HEAD ruby-build
 brew install node
 brew install gettext
 brew install openssl
-brew install the_silver_searcher
 brew install tmux
 brew install reattach-to-user-namespace
-brew install cocot
 brew install tree
 brew install vim
 brew install macvim
-brew install mogenerator
 brew install nginx
 brew install mysql
 brew install imagemagick
 brew install rbenv
-brew install rbenv-default-gems
 brew install gibo
 brew install direnv
 
@@ -52,13 +45,13 @@ brew cask install cheatsheet
 brew cask install filezilla
 brew cask install handbrake
 brew cask install iterm2
+brew cask install karabiner
 brew cask install virtualbox
 brew cask install vagrant
 brew cask install vlc
 brew cask install xtrafinder
 brew cask install clipy
 brew cask install gyazo
-brew cask install atom
 
 # Remove outdated versions
 brew cleanup
