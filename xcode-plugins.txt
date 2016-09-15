@@ -5,6 +5,6 @@ rm -fr ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins/*
 curl -fsSL https://raw.github.com/supermarin/Alcatraz/master/Scripts/install.sh | sh
 
 # install plugins from [Window] > [Package Manager]
-## UncrustifyPlugin
 ## VVDocumenter-Xcode
+## Swimat
 ## XVim
