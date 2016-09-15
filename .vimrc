@@ -65,6 +65,7 @@ set clipboard+=unnamed
 set nobackup
 set noundofile
 set display=lastline
+set breakindent
 " コマンドモードの補完で大文字小文字を無視
 set wildignorecase
 set wildmode=list:full
