@@ -20,3 +20,5 @@ done
 mkdir ${HOME}/.config
 ln -snfv ${HOME}/.vim ${HOME}/.config/nvim
 ln -snfv ${HOME}/.vimrc ${HOME}/.config/nvim/init.vim
+
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
