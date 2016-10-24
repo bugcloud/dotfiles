@@ -185,7 +185,6 @@ export SVN_EDITOR="vim"
 
 eval "$(rbenv init -)"
 eval "$(direnv hook zsh)"
-export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2375
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"

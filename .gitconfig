@@ -26,8 +26,8 @@
   attributesfile = ~/.gitattributes
 [merge]
   tool = vimdiff
-[diff "image"]
-  command = git imgdiff
+#[diff "image"]
+#  command = git imgdiff
 [pager]
   log = diff-highlight | less
   show = diff-highlight | less
