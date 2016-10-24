@@ -68,6 +68,7 @@ set laststatus=2
 set clipboard+=unnamed
 set nobackup
 set noundofile
+set breakindent
 set display=lastline
 set fileencoding=utf-8
 set fileencodings=ucs-boms,utf-8,euc-jp,cp932
@@ -80,13 +81,14 @@ set whichwrap=b,s,h,l,<,>,[,],~
 " コマンドモードの補完で大文字小文字を無視
 set wildignorecase
 set wildmode=list:full
-autocmd BufWritePre * call RTrim()
 
 set showmatch
 source $VIMRUNTIME/macros/matchit.vim
 
 set wildmenu
 set history=5000
+
+autocmd BufWritePre * call RTrim()
 
 "Global Key binds
 let mapleader = ","
