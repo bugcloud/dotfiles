@@ -76,8 +76,6 @@ set fileformats=unix,dos,mac
 " http://qiita.com/ahiruman5/items/4f3c845500c172a02935
 " □や○文字が崩れる問題を解決
 set ambiwidth=double
- " カーソルの左右移動で行末から次の行の行頭への移動
-set whichwrap=b,s,h,l,<,>,[,],~
 " コマンドモードの補完で大文字小文字を無視
 set wildignorecase
 set wildmode=list:full
