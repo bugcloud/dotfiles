@@ -1,3 +1,6 @@
+set encoding=utf-8
+scriptencoding utf-8
+
 filetype off
 
 " Skip initialization for vim-tiny or vim-small.
@@ -52,23 +55,38 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+set autoindent
 set smartindent
 set number
+set cursorline
 set mouse=a
 set tabstop=2 softtabstop=2 shiftwidth=2
 set expandtab
 set list
 set listchars=tab:>-
 set laststatus=2
-set encoding=utf-8
 set clipboard+=unnamed
 set nobackup
 set noundofile
 set display=lastline
+set fileencoding=utf-8
+set fileencodings=ucs-boms,utf-8,euc-jp,cp932
+set fileformats=unix,dos,mac
+" http://qiita.com/ahiruman5/items/4f3c845500c172a02935
+" □や○文字が崩れる問題を解決
+set ambiwidth=double
+ " カーソルの左右移動で行末から次の行の行頭への移動
+set whichwrap=b,s,h,l,<,>,[,],~
 " コマンドモードの補完で大文字小文字を無視
 set wildignorecase
 set wildmode=list:full
 autocmd BufWritePre * call RTrim()
+
+set showmatch
+source $VIMRUNTIME/macros/matchit.vim
+
+set wildmenu
+set history=5000
 
 "Global Key binds
 let mapleader = ","
@@ -143,7 +161,6 @@ if !has('nvim')
   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
   " Enable heavy omni completion.
   if !exists('g:neocomplete#sources#omni#input_patterns')
     let g:neocomplete#sources#omni#input_patterns = {}
@@ -221,6 +238,9 @@ function! s:unite_my_settings()
 endfunction
 
 function! RTrim()
+  if &ft =~ 'markdown'
+    return
+  endif
   let s:cursor = getpos(".")
   %s/\s\+$//e
   call setpos(".", s:cursor)
@@ -231,6 +251,20 @@ endfunction
 let s:is_mac = (has('mac') || has('macunix') || has('gui_macvim') || system('uname') =~? '^darwin')
 if s:is_mac
   nmap ,y :call system("pbcopy", @")<CR>
+endif
+
+" ペースト時にインデントしない
+if &term =~ "xterm"
+    let &t_SI .= "\e[?2004h"
+    let &t_EI .= "\e[?2004l"
+    let &pastetoggle = "\e[201~"
+
+    function XTermPasteBegin(ret)
+        set paste
+        return a:ret
+    endfunction
+
+    inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
 endif
 
 "insert comment to end tag
