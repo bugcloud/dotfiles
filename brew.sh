@@ -50,6 +50,7 @@ brew cask install vlc
 brew cask install xtrafinder
 brew cask install clipy
 brew cask install gyazo
+brew cask install bettertouchtool
 
 # Remove outdated versions
 brew cleanup
