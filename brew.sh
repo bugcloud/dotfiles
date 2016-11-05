@@ -31,6 +31,7 @@ brew install nginx
 brew install mysql
 brew install imagemagick
 brew install rbenv
+brew install reattach-to-user-namespace
 brew install gibo
 brew install macvim --env-std --with-override-system-vim
 brew linkapps macvim
