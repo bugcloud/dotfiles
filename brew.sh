@@ -7,8 +7,9 @@ brew update
 # upgrade
 
 # Add Repository
-brew tap homebrew/versions || true
-brew tap homebrew/binary || true
+brew tap homebrew/versions
+brew tap homebrew/binary
+brew tap caskroom/cask
 
 # Packages
 brew install autoconf
@@ -19,14 +20,12 @@ brew install wget
 brew install git
 brew install tig
 brew install mercurial
-brew install brew-cask-completion
 brew install readline
 brew install --HEAD ruby-build
 brew install node
 brew install gettext
 brew install openssl
 brew install tmux
-brew install reattach-to-user-namespace
 brew install tree
 brew install vim
 brew install macvim
@@ -35,7 +34,6 @@ brew install mysql
 brew install imagemagick
 brew install rbenv
 brew install gibo
-brew install direnv
 
 # .dmg
 brew cask install appcleaner
