@@ -27,13 +27,13 @@ brew install gettext
 brew install openssl
 brew install tmux
 brew install tree
-brew install vim
-brew install macvim
 brew install nginx
 brew install mysql
 brew install imagemagick
 brew install rbenv
 brew install gibo
+brew install macvim --env-std --with-override-system-vim
+brew linkapps macvim
 
 # .dmg
 brew cask install appcleaner
