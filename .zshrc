@@ -19,14 +19,6 @@ source ~/.gibo-completion.zsh
 #
 export LANG=ja_JP.UTF-8
 
-# auto change directory
-#
-setopt auto_cd
-
-# auto directory pushd that you can get dirs list by cd -[tab]
-#
-setopt auto_pushd
-
 # command correct edition before each completion attempt
 #
 setopt correct
@@ -61,28 +53,6 @@ bindkey "^p" history-beginning-search-backward-end
 bindkey "^n" history-beginning-search-forward-end
 bindkey "\\ep" history-beginning-search-backward-end
 bindkey "\\en" history-beginning-search-forward-end
-
-
-## Command history configuration
-#
-HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
-setopt hist_ignore_dups     # ignore duplication command history list
-setopt share_history        # share command history data
-
-
-## Completion configuration
-#
-fpath=(~/.zsh/functions/Completion ${fpath})
-autoload -U compinit
-compinit
-
-
-## zsh editor
-#
-autoload zed
-
 
 ## Prediction configuration
 #
@@ -161,17 +131,12 @@ alias ll='ls -alh'
 alias la='ls -A'
 alias l='ls -CF'
 alias rm='rm -i'
-alias cd='pushd'
-alias bd='popd'
 alias ..='cd ..'
 alias bex='bundle exec'
 alias :vsp='tmux split-window -h'
 alias :sp='tmux split-window -v'
 # Only Mac OS X
 alias ctags="`brew --prefix`/bin/ctags"
-export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
-alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 
 ## load user .zshrc configuration file
 #

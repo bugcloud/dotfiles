@@ -73,6 +73,9 @@ zstyle ':prezto:module:editor' key-bindings 'vi'
 # History Substring Search
 #
 
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
 # Set the query found color.
 # zstyle ':prezto:module:history-substring-search:color' found ''
 
