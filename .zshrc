@@ -127,6 +127,7 @@ bindkey "."   magic-abbrev-expand-and-insert
 bindkey "^x " no-magic-abbrev-expand
 #################################################################################
 
+alias bd='popd'
 alias ll='ls -alh'
 alias la='ls -A'
 alias l='ls -CF'
