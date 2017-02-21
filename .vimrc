@@ -6,6 +6,10 @@ filetype off
 " Skip initialization for vim-tiny or vim-small.
 if !1 | finish | endif
 
+if &compatible
+  set nocompatible
+endif
+
 let s:dein_dir = expand('~/.vim/dein')
 " dein.vim 本体
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'

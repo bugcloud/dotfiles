@@ -111,3 +111,9 @@ repo = 'tpope/vim-haml'
 
 [[plugins]]
 repo = 'tpope/vim-endwise'
+
+[[plugins]]
+repo = 'junegunn/fzf'
+depends = ['fzf']
+build = './install'
+rtp = ''
