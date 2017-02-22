@@ -12,8 +12,7 @@ set -g theme_date_format "+%H:%M:%S"
 alias du="du -h"
 alias df="df -h"
 alias su="su -l"
-alias cd='pushd'
-alias bd='popd'
+alias bd='cd -'
 alias ll='ls -alh'
 alias la='ls -A'
 alias l='ls -CF'
@@ -22,7 +21,6 @@ alias ..='cd ..'
 alias bex='bundle exec'
 alias :vsp='tmux split-window -h'
 alias :sp='tmux split-window -v'
-
 
 # ENV
 export XDG_CONFIG_HOME=$HOME/.config
