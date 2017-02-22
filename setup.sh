@@ -1,18 +1,19 @@
 #!/bin/bash
 
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
+# fish shell
+curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+fisher z fzf rbenv edc/bass omf/theme-bobthefish
 
-git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-setopt EXTENDED_GLOB
-for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-  ln -snfv "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-done
-
-DOT_FILES=( .zshrc .zpreztorc .zshenv .gitconfig .gitignore .gitscripts .gitattributes .vimrc .vim .tmux.conf .editorconfig bin itermcolors .pryrc uncrustify.cfg )
+DOT_FILES=( .gitconfig .gitignore .gitscripts .gitattributes .vimrc .vim .tmux.conf .editorconfig bin itermcolors .pryrc uncrustify.cfg )
 for file in ${DOT_FILES[@]}
 do
   ln -snfv $HOME/dotfiles/$file $HOME/$file
+done
+
+FISH_FILES=( 'fish/config.fish' 'fish/fishfile' )
+for file in ${FISH_FILES[@]}
+do
+  ln -snfv $HOME/dotfiles/$file $HOME/.config/$file
 done
 
 mkdir ${HOME}/.config

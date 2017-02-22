@@ -10,6 +10,7 @@ brew update
 brew tap homebrew/versions
 brew tap homebrew/binary
 brew tap caskroom/cask
+brew tap caskroom/fonts
 
 # Packages
 brew install autoconf
@@ -18,6 +19,8 @@ brew install cmake
 brew install curl
 brew install wget
 brew install git
+brew install fzf
+/usr/local/opt/fzf/install
 brew install tig
 brew install mercurial
 brew install readline
@@ -35,6 +38,7 @@ brew install reattach-to-user-namespace
 brew install gibo
 brew install macvim --env-std --with-override-system-vim
 brew linkapps macvim
+brew install fish
 
 # .dmg
 brew cask install appcleaner
@@ -52,6 +56,7 @@ brew cask install xtrafinder
 brew cask install clipy
 brew cask install gyazo
 brew cask install bettertouchtool
+brew cask install font-hack-nerd-font
 
 # Remove outdated versions
 brew cleanup
