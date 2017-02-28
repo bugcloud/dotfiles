@@ -27,4 +27,4 @@ export XDG_CONFIG_HOME=$HOME/.config
 export SVN_EDITOR="vim"
 
 # Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+set PATH /usr/local/heroku/bin $PATH
