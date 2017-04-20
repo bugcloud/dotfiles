@@ -58,6 +58,7 @@ brew cask install gyazo
 brew cask install bettertouchtool
 brew cask install font-hack-nerd-font
 brew cask install swimat
+brew cask install sequel-pro
 
 # Remove outdated versions
 brew cleanup
