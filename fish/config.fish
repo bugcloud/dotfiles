@@ -23,8 +23,13 @@ alias :vsp='tmux split-window -h'
 alias :sp='tmux split-window -v'
 
 # ENV
-export XDG_CONFIG_HOME=$HOME/.config
-export SVN_EDITOR="vim"
+set -x XDG_CONFIG_HOME $HOME/.config
+set -x SVN_EDITOR vim
 
 # Added by the Heroku Toolbelt
-set PATH /usr/local/heroku/bin $HOME/bin $PATH
+set -x PATH /usr/local/heroku/bin $HOME/bin $PATH
+
+# For Android development
+set -x ANDROID_HOME $HOME/Library/Android/sdk
+set -x PATH $ANDROID_HOME/tools $PATH
+set -x PATH $ANDROID_HOME/platform-tools $PATH
