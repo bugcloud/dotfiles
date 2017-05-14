@@ -110,7 +110,13 @@ repo = 'tpope/vim-rails'
 repo = 'tpope/vim-haml'
 
 [[plugins]]
+repo = 'slim-template/vim-slim'
+
+[[plugins]]
 repo = 'tpope/vim-endwise'
+
+[[plugins]]
+repo = 'othree/yajs'
 
 [[plugins]]
 repo = 'junegunn/fzf'
