@@ -57,9 +57,6 @@ repo = 'kana/vim-textobj-user'
 repo = 'othree/html5.vim'
 
 [[plugins]]
-repo = 'hail2u/vim-css3-syntax'
-
-[[plugins]]
 repo = 'othree/yajs.vim'
 
 [[plugins]]
@@ -73,9 +70,6 @@ repo = 'Lokaltog/vim-easymotion'
 
 [[plugins]]
 repo = 'tpope/vim-surround'
-
-[[plugins]]
-repo = 'scrooloose/syntastic'
 
 [[plugins]]
 repo = 'jiangmiao/auto-pairs'
@@ -123,3 +117,6 @@ repo = 'junegunn/fzf'
 depends = ['fzf']
 build = './install'
 rtp = ''
+
+[[plugins]]
+repo = 'w0rp/ale'
