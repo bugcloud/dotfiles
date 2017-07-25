@@ -183,6 +183,10 @@ if !has('nvim')
   xmap <C-k>     <Plug>(neosnippet_expand_target)
 endif
 
+"JavaScript
+autocmd FileType javascript set formatprg=prettier\ --stdin
+autocmd BufWritePre *.js :normal gggqG
+
 "vim-ruby
 let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global = 1
