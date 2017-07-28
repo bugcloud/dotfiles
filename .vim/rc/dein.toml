@@ -120,3 +120,6 @@ rtp = ''
 
 [[plugins]]
 repo = 'w0rp/ale'
+
+[[plugins]]
+repo = 'flowtype/vim-flow'
