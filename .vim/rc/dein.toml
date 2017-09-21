@@ -60,6 +60,9 @@ repo = 'othree/html5.vim'
 repo = 'othree/yajs.vim'
 
 [[plugins]]
+repo = 'prettier/vim-prettier'
+
+[[plugins]]
 repo = 'kchmck/vim-coffee-script'
 
 [[plugins]]
@@ -108,9 +111,6 @@ repo = 'slim-template/vim-slim'
 
 [[plugins]]
 repo = 'tpope/vim-endwise'
-
-[[plugins]]
-repo = 'othree/yajs'
 
 [[plugins]]
 repo = 'junegunn/fzf'
