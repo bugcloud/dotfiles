@@ -205,7 +205,7 @@ let g:prettier#config#trailing_comma = 'none'
 let g:prettier#config#parser = 'flow'
 " cli-override|file-override|prefer-file
 let g:prettier#config#config_precedence = 'prefer-file'
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql Prettier
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.graphql Prettier
 
 "vim-ruby
 let g:rubycomplete_buffer_loading = 1
