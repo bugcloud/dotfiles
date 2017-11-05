@@ -93,20 +93,17 @@ set history=5000
 autocmd BufWritePre * call RTrim()
 
 "Global Key binds
-let mapleader = ","
+let mapleader = "\<Space>"
 nnoremap Y y$
 nnoremap + <C-a>
 nnoremap - <C-x>
 " Visualモード時のヤンクをクリップボードにも入れる
-vmap ,y "+y
+vmap <Space>y "+y
 " switch window
 nmap <C-j> <C-W>j
 nmap <C-k> <C-W>k
 nmap <C-h> <C-w>h
 nmap <C-l> <C-w>l
-
-" Insertモードをjjで抜ける
-inoremap <silent> jj <ESC>
 
 "Powerline
 let g:Powerline_symbols = 'fancy'
@@ -207,20 +204,6 @@ let g:prettier#config#parser = 'flow'
 let g:prettier#config#config_precedence = 'prefer-file'
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.graphql Prettier
 
-"vim-ruby
-let g:rubycomplete_buffer_loading = 1
-let g:rubycomplete_classes_in_global = 1
-"rails.vim
-let g:rails_level=4
-let g:rails_default_file="app/controllers/application.rb"
-let g:rails_default_database="sqlite3"
-
-""" over.vim
-" over.vimの起動
-nnoremap <silent> <Leader>m :OverCommandLine<CR>
-" カーソル下の単語をハイライト付きで置換
-nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
-
 """ Unite.vim
 " 起動時にインサートモードで開始
 let g:unite_enable_start_insert = 1
@@ -237,17 +220,17 @@ inoremap <silent> <C-f> <ESC>:<C-u>UniteWithBufferDir -buffer-name=files file<CR
 "inoremap <silent> <C-a> <ESC>:<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 
 " バッファ一覧
-nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+nnoremap <silent> <Space>ub :<C-u>Unite buffer<CR>
 " ファイル一覧
-nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> <Space>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 " レジスタ一覧
-nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> <Space>ur :<C-u>Unite -buffer-name=register register<CR>
 " 最近使用したファイル一覧
-nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
+nnoremap <silent> <Space>um :<C-u>Unite file_mru<CR>
 " 全部乗せ
-nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+nnoremap <silent> <Space>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 " grep
-nnoremap <silent> ,ug :Unite grep:./:%<CR>
+nnoremap <silent> <Space>ug :Unite grep:./:%<CR>
 " unite grep に ag(The Silver Searcher) を使う
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
@@ -275,10 +258,10 @@ function! RTrim()
 endfunction
 
 " For Mac OS
-" ,y : レジスタに入ってるテキストをクリップボードに保存
+" <Space>y : レジスタに入ってるテキストをクリップボードに保存
 let s:is_mac = (has('mac') || has('macunix') || has('gui_macvim') || system('uname') =~? '^darwin')
 if s:is_mac
-  nmap ,y :call system("pbcopy", @")<CR>
+  nmap <Space>y :call system("pbcopy", @")<CR>
 endif
 
 " ペースト時にインデントしない
@@ -339,7 +322,7 @@ function! Endtagcomment()
 endfunction
 
 let g:endtagcommentFormat = '<!-- /%id%class -->'
-nnoremap ,t :<C-u>call Endtagcomment()<CR>
+nnoremap <Space>t :<C-u>call Endtagcomment()<CR>
 
 " zencoding
 let g:user_zen_settings = {
@@ -353,24 +336,6 @@ let g:user_zen_settings = {
   \  },
   \  'css' : {
   \    'filters' : 'fc',
-  \  },
-  \  'javascript' : {
-  \    'snippets' : {
-  \      'jq' : "\\$(function() {\n\t${cursor}${child}\n});",
-  \      'jq:each' : "\\$.each(arr, function(index, item)\n\t\\${child}\n});",
-  \      'fn' : "(function() {\n\t${cursor}\n})();",
-  \      'tm' : "setTimeout(function() {\n\t${cursor}\n}, 100);",
-  \      'int' : "setInterval(function() {\n\t${cursor}\n}, 100);",
-  \    },
-  \  },
-  \  'coffee' : {
-  \    'snippets' : {
-  \      'jq' : "\\$ ->\n\t${cursor}${child}",
-  \      'jq:each' : "\\$.each arr, (index, item) ->\n\t${child}",
-  \      'fn' : "() ->\n\t${cursor}",
-  \      'tm' : "setTimeout () ->\n\t${cursor}\n, 100",
-  \      'int' : "setInterval () ->\n\t${cursor}\n, 100",
-  \    },
   \  },
   \  'haml' : {
   \    'filters' : 'html'

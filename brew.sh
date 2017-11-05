@@ -36,7 +36,8 @@ brew install imagemagick
 brew install rbenv
 brew install reattach-to-user-namespace
 brew install gibo
-brew install macvim --env-std --with-override-system-vim
+brew install lua
+brew install macvim --env-std --with-override-system-vim --with-lua
 brew linkapps macvim
 brew install fish
 

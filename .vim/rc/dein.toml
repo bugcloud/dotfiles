@@ -45,13 +45,7 @@ repo = 'rking/ag.vim'
 repo = 'editorconfig/editorconfig-vim'
 
 [[plugins]]
-repo = 'osyo-manga/vim-over'
-
-[[plugins]]
 repo = 'terryma/vim-multiple-cursors'
-
-[[plugins]]
-repo = 'kana/vim-textobj-user'
 
 [[plugins]]
 repo = 'othree/html5.vim'
@@ -75,27 +69,12 @@ repo = 'Lokaltog/vim-easymotion'
 repo = 'tpope/vim-surround'
 
 [[plugins]]
-repo = 'jiangmiao/auto-pairs'
-on_i = 1
-
-[[plugins]]
 repo = 'Shougo/neomru.vim'
 on_path = '.*'
 
 [[plugins]]
 repo = 'Shougo/unite.vim'
 depends = 'neomru.vim'
-
-[[plugins]]
-repo = 'Shougo/neosnippet'
-depends = ['neosnippet-snippets']
-on_i = 1
-on_ft = ['snippet']
-
-[[plugins]]
-repo = 'Shougo/neoyank.vim'
-on_path = '.*'
-on_i = 1
 
 [[plugins]]
 repo = 'vim-ruby/vim-ruby'
@@ -120,3 +99,6 @@ rtp = ''
 
 [[plugins]]
 repo = 'w0rp/ale'
+
+[[plugins]]
+repo = 'galooshi/vim-import-js'
