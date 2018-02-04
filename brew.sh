@@ -19,8 +19,9 @@ brew install cmake
 brew install curl
 brew install wget
 brew install git
+ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin
 brew install fzf
-/usr/local/opt/fzf/install
+$(brew --prefix)/opt/fzf/install
 brew install tig
 brew install mercurial
 brew install readline
@@ -30,7 +31,6 @@ brew install gettext
 brew install openssl
 brew install tmux
 brew install tree
-brew install nginx
 brew install mysql
 brew install imagemagick
 brew install rbenv
@@ -40,6 +40,7 @@ brew install lua
 brew install macvim --env-std --with-override-system-vim --with-lua
 brew linkapps macvim
 brew install fish
+brew install the_silver_searcher
 
 # .dmg
 brew cask install appcleaner
@@ -48,10 +49,6 @@ brew cask install bitbar
 brew cask install cheatsheet
 brew cask install filezilla
 brew cask install handbrake
-brew cask install iterm2
-brew cask install karabiner
-brew cask install virtualbox
-brew cask install vagrant
 brew cask install vlc
 brew cask install xtrafinder
 brew cask install clipy

@@ -34,9 +34,7 @@ if dein#load_state(s:dein_dir)
   call dein#save_state()
 endif
 
-if dein#check_install(['vimproc'])
-  call dein#install(['vimproc'])
-endif
+call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
 
 if dein#check_install()
   call dein#install()
