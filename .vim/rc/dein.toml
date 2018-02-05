@@ -60,7 +60,10 @@ repo = 'prettier/vim-prettier'
 repo = 'kchmck/vim-coffee-script'
 
 [[plugins]]
-repo = 'Lokaltog/vim-powerline'
+repo = 'vim-airline/vim-airline'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
 
 [[plugins]]
 repo = 'Lokaltog/vim-easymotion'

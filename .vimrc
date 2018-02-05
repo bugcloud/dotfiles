@@ -103,8 +103,11 @@ nmap <C-k> <C-W>k
 nmap <C-h> <C-w>h
 nmap <C-l> <C-w>l
 
-"Powerline
-let g:Powerline_symbols = 'fancy'
+" airline
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
 
 if !has('nvim')
   " neosnippet
