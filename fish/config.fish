@@ -34,3 +34,6 @@ set -x PATH $HOME/bin $PATH
 set -x ANDROID_HOME $HOME/Library/Android/sdk
 set -x PATH $ANDROID_HOME/tools $PATH
 set -x PATH $ANDROID_HOME/platform-tools $PATH
+
+# rbenv
+rbenv init - | source

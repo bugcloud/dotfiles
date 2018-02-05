@@ -41,6 +41,7 @@ brew install macvim --env-std --with-override-system-vim --with-lua
 brew linkapps macvim
 brew install fish
 brew install the_silver_searcher
+brew install yarn
 
 # .dmg
 brew cask install appcleaner
