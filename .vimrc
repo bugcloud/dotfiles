@@ -95,6 +95,7 @@ let mapleader = "\<Space>"
 nnoremap Y y$
 nnoremap + <C-a>
 nnoremap - <C-x>
+inoremap jj <esc>
 " Visualモード時のヤンクをクリップボードにも入れる
 vmap <Space>y "+y
 " switch window
