@@ -42,6 +42,7 @@ brew linkapps macvim
 brew install fish
 brew install the_silver_searcher
 brew install yarn
+brew install jq
 
 # .dmg
 brew cask install appcleaner
