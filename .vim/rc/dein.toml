@@ -105,3 +105,9 @@ repo = 'w0rp/ale'
 
 [[plugins]]
 repo = 'galooshi/vim-import-js'
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+
+[[plugins]]
+repo = 'posva/vim-vue'
