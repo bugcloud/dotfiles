@@ -43,6 +43,7 @@ brew install fish
 brew install the_silver_searcher
 brew install yarn
 brew install jq
+brew install ffmpeg
 
 # .dmg
 brew cask install appcleaner
