@@ -24,6 +24,7 @@
   editor = vim
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
+  ignoreCase = false
 [merge]
   tool = vimdiff
 #[diff "image"]
