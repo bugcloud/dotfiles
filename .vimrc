@@ -201,10 +201,20 @@ let g:prettier#config#jsx_bracket_same_line = 'false'
 " none|es5|all
 let g:prettier#config#trailing_comma = 'none'
 " flow|babylon|typescript|postcss|json|graphql
-let g:prettier#config#parser = 'flow'
+let g:prettier#config#parser = get(g:,'prettier#config#parser', 'flow')
 " cli-override|file-override|prefer-file
 let g:prettier#config#config_precedence = 'prefer-file'
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.graphql,*.vue Prettier
+let g:neoformat_javascript_prettiereslint = {
+      \ 'exe': './node_modules/.bin/prettier-eslint',
+      \ 'args': ['--stdin'],
+      \ 'stdin': 1,
+      \ }
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * Neoformat
+augroup END
+let g:neoformat_enabled_javascript = ['prettiereslint']
 
 """ Unite.vim
 " 起動時にインサートモードで開始
