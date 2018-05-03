@@ -8,6 +8,10 @@ set -g theme_display_hg no
 set -g theme_display_ruby yes
 set -g theme_date_format "+%H:%M:%S"
 
+# fzf
+set -U FZF_LEGACY_KEYBINDINGS 0
+set -U FZF_TMUX 1
+
 # alias
 alias du="du -h"
 alias df="df -h"
