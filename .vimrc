@@ -215,6 +215,8 @@ augroup fmt
   autocmd BufWritePre * Neoformat
 augroup END
 let g:neoformat_enabled_javascript = ['prettiereslint']
+"JSX
+let g:vim_jsx_pretty_colorful_config = 1
 
 """ Unite.vim
 " 起動時にインサートモードで開始

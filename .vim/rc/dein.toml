@@ -51,7 +51,10 @@ repo = 'terryma/vim-multiple-cursors'
 repo = 'othree/html5.vim'
 
 [[plugins]]
-repo = 'othree/yajs.vim'
+repo = 'pangloss/vim-javascript'
+
+[[plugins]]
+repo = 'maxmellon/vim-jsx-pretty'
 
 [[plugins]]
 repo = 'prettier/vim-prettier'
