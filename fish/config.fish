@@ -35,9 +35,15 @@ set -x SVN_EDITOR vim
 set -x PATH $HOME/bin $PATH
 
 # For Android development
+set -x ANDROID_STUDIO_JDK_HOME "/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
+set -x PATH $ANDROID_STUDIO_JDK_HOME/bin $PATH
+set -x JAVA_HOME $ANDROID_STUDIO_JDK_HOME
 set -x ANDROID_HOME $HOME/Library/Android/sdk
 set -x PATH $ANDROID_HOME/tools $PATH
 set -x PATH $ANDROID_HOME/platform-tools $PATH
 
 # rbenv
 rbenv init - | source
+
+# pyenv
+pyenv init - | source
