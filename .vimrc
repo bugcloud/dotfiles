@@ -214,7 +214,7 @@ augroup fmt
   autocmd!
   autocmd BufWritePre * Neoformat
 augroup END
-let g:neoformat_enabled_javascript = ['prettiereslint']
+let g:neoformat_enabled_javascript = ['prettiereslint', 'eslint']
 "JSX
 let g:vim_jsx_pretty_colorful_config = 1
 

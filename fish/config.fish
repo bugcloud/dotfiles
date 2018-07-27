@@ -46,4 +46,4 @@ set -x PATH $ANDROID_HOME/platform-tools $PATH
 rbenv init - | source
 
 # pyenv
-. (pyenv init - | psub)
+# . (pyenv init - | psub)

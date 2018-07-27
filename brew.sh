@@ -37,7 +37,7 @@ brew install rbenv
 brew install reattach-to-user-namespace
 brew install gibo
 brew install lua
-brew install macvim --env-std --with-override-system-vim --with-lua
+brew install macvim --with-override-system-vim --with-lua
 brew linkapps macvim
 brew install fish
 brew install the_silver_searcher
