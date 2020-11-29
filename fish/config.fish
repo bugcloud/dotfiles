@@ -47,5 +47,8 @@ set -x ANDROID_HOME $HOME/Library/Android/sdk
 # rbenv
 rbenv init - | source
 
+# nvm
+set -gx nvm_prefix /usr/local/Cellar/nvm/0.37.2
+
 # pyenv
-# . (pyenv init - | psub)
+. (pyenv init - | psub)
