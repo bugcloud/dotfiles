@@ -52,3 +52,6 @@ set -gx nvm_prefix /usr/local/Cellar/nvm/0.37.2
 
 # pyenv
 . (pyenv init - | psub)
+
+# iTerm2 Shell Integration
+source ~/.iterm2_shell_integration.fish
