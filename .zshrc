@@ -1,18 +1,3 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
-# Customize to your needs...
-source ~/.gibo-completion.zsh
-
 ## Environment variable configuration
 #
 # LANG
@@ -27,10 +12,6 @@ setopt correct
 #
 setopt list_packed
 
-# no remove postfix slash of command line
-#
-setopt noautoremoveslash
-
 # no beep sound when complete list displayed
 #
 setopt nolistbeep
@@ -38,26 +19,11 @@ setopt nolistbeep
 ###
 ## Set other shell options
 ####
-setopt auto_menu correct auto_name_dirs auto_remove_slash
+setopt auto_menu auto_name_dirs auto_remove_slash
 setopt extended_history hist_ignore_dups
 setopt pushd_ignore_dups rm_star_silent sun_keyboard_hack
 setopt extended_glob list_types no_beep always_last_prompt
 setopt cdable_vars sh_word_split auto_param_keys
-
-# historical backward/forward search with linehead string binded to ^P/^N
-#
-autoload history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
-bindkey "^p" history-beginning-search-backward-end
-bindkey "^n" history-beginning-search-forward-end
-bindkey "\\ep" history-beginning-search-backward-end
-bindkey "\\en" history-beginning-search-forward-end
-
-## Prediction configuration
-#
-#autoload predict-on
-#predict-off
 
 ## Alias configuration
 #
@@ -65,94 +31,53 @@ bindkey "\\en" history-beginning-search-forward-end
 #
 setopt complete_aliases     # aliased ls needs if file/dir completions work
 
-alias where="command -v"
-alias j="jobs -l"
-
-case "${OSTYPE}" in
-freebsd*|darwin*)
-    alias ls="ls -G -w"
-    ;;
-linux*)
-    alias ls="ls --color"
-    ;;
-esac
-
+# alias
 alias du="du -h"
 alias df="df -h"
-
 alias su="su -l"
-
-#################################################################################
-# to use git HEAD^^
-typeset -A abbreviations
-abbreviations=(
-    "L"    "| $PAGER"
-    "G"    "| grep"
-
-    "HEAD^"     "HEAD\\^"
-    "HEAD^^"    "HEAD\\^\\^"
-    "HEAD^^^"   "HEAD\\^\\^\\^"
-    "HEAD^^^^"  "HEAD\\^\\^\\^\\^\\^"
-    "HEAD^^^^^" "HEAD\\^\\^\\^\\^\\^"
-)
-
-magic-abbrev-expand () {
-    local MATCH
-    LBUFFER=${LBUFFER%%(#m)[-_a-zA-Z0-9^]#}
-    LBUFFER+=${abbreviations[$MATCH]:-$MATCH}
-}
-
-magic-abbrev-expand-and-insert () {
-    magic-abbrev-expand
-    zle self-insert
-}
-
-magic-abbrev-expand-and-accept () {
-    magic-abbrev-expand
-    zle accept-line
-}
-
-no-magic-abbrev-expand () {
-    LBUFFER+=' '
-}
-
-zle -N magic-abbrev-expand
-zle -N magic-abbrev-expand-and-insert
-zle -N magic-abbrev-expand-and-accept
-zle -N no-magic-abbrev-expand
-bindkey "\r"  magic-abbrev-expand-and-accept # M-x RET はできなくなる
-bindkey "^J"  accept-line # no magic
-bindkey " "   magic-abbrev-expand-and-insert
-bindkey "."   magic-abbrev-expand-and-insert
-bindkey "^x " no-magic-abbrev-expand
-#################################################################################
-
-alias bd='popd'
+alias bd='cd -'
 alias ll='ls -alh'
 alias la='ls -A'
 alias l='ls -CF'
 alias rm='rm -i'
 alias ..='cd ..'
 alias bex='bundle exec'
+alias up='docker compose up'
+alias dcx='docker compose exec'
 alias :vsp='tmux split-window -h'
 alias :sp='tmux split-window -v'
-# Only Mac OS X
-alias ctags="`brew --prefix`/bin/ctags"
 
-## load user .zshrc configuration file
-#
-[ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
-
-export PATH="$HOME/bin:$HOME/.gitscripts:$HOME/node_modules/coffee-script/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share/git-core/contrib/diff-highlight:$PATH"
-
+# ENV
 export XDG_CONFIG_HOME=$HOME/.config
-
 export SVN_EDITOR="vim"
-
-eval "$(rbenv init --no-rehash -)"
-
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+# For Android development
+export ANDROID_STUDIO_JDK_HOME="/Applications/Android Studio.app/Contents/jre/Contents/Home"
+export JAVA_HOME=$ANDROID_STUDIO_JDK_HOME
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export PATH="$ANDROID_STUDIO_JDK_HOME/bin:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
-# https://github.com/junegunn/fzf
+# Homebrew
+eval "$(/usr/local/bin/brew shellenv)"
+
+# rbenv
+eval "$(rbenv init - zsh)"
+
+# fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_LEGACY_KEYBINDINGS=0
+export FZF_TMUX=1
+function fzf-select-history() {
+    BUFFER=$(history -n -r 1 | fzf --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle reset-prompt
+}
+zle -N fzf-select-history
+bindkey '^r' fzf-select-history
+
+# starship
+eval "$(starship init zsh)"
+
+# sheldon
+eval "$(sheldon source)"
