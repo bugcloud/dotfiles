@@ -4,7 +4,7 @@
 curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 fisher z fzf rbenv edc/bass omf/theme-bobthefish
 
-DOT_FILES=( .gitconfig .gitignore .gitscripts .gitattributes .vimrc .vim .tmux.conf .editorconfig bin itermcolors .pryrc uncrustify.cfg )
+DOT_FILES=( .gitconfig .gitignore .vimrc .vim .tmux.conf .editorconfig bin itermcolors .pryrc uncrustify.cfg )
 for file in ${DOT_FILES[@]}
 do
   ln -snfv $HOME/dotfiles/$file $HOME/$file

@@ -24,9 +24,6 @@ repo = 'altercation/vim-colors-solarized'
 repo = 'vim-scripts/sudo.vim'
 
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-
-[[plugins]]
 repo = 'Shougo/echodoc.vim'
 
 [[plugins]]
