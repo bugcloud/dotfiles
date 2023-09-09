@@ -81,3 +81,7 @@ eval "$(starship init zsh)"
 
 # sheldon
 eval "$(sheldon source)"
+
+# jump
+eval "$(jump shell)"
+
