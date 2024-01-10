@@ -53,16 +53,18 @@ export SVN_EDITOR="vim"
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 # For Android development
-export ANDROID_STUDIO_JDK_HOME="/Applications/Android Studio.app/Contents/jre/Contents/Home"
-export JAVA_HOME=$ANDROID_STUDIO_JDK_HOME
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-19.jdk/Contents/Home
 export ANDROID_HOME="$HOME/Library/Android/sdk"
-export PATH="$ANDROID_STUDIO_JDK_HOME/bin:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
+export PATH="$ANDROID_HOME/cmdline-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
 # Homebrew
 eval "$(/usr/local/bin/brew shellenv)"
 
 # rbenv
 eval "$(rbenv init - zsh)"
+
+# mise
+eval "$(mise activate zsh)"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -84,4 +86,3 @@ eval "$(sheldon source)"
 
 # jump
 eval "$(jump shell)"
-
