@@ -1,6 +1,6 @@
 #!/bin/bash
 
-brew install fig fzf sheldon starship exa
+brew install jump mise fig fzf sheldon starship exa
 
 DOT_FILES=( .zshrc .gitconfig .gitignore .vimrc .vim .tmux.conf .editorconfig bin itermcolors .pryrc uncrustify.cfg )
 for file in ${DOT_FILES[@]}
