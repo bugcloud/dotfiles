@@ -12,6 +12,7 @@ mkdir ${HOME}/.config
 ln -snfv ${HOME}/.vim ${HOME}/.config/nvim
 ln -snfv ${HOME}/.vimrc ${HOME}/.config/nvim/init.vim
 ln -snfv ${HOME}/dotfiles/.config/starship.toml ${HOME}/.config/starship.toml
+mkdir -p ${HOME}/.config/sheldon
 ln -snfv ${HOME}/dotfiles/.config/sheldon/plugins.toml ${HOME}/.config/sheldon/plugins.toml
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
