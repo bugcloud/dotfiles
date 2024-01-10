@@ -19,6 +19,9 @@ find . -name '*.sql' | xargs nkf --overwrite -w -Lu
 iconv -s -f SHIFT_JIS -t UTF-8
 find . -name '*.java' | xargs nkf --overwrite -w -Lu --ic=EUC-JP --oc=UTF-8
 
+# マージ済みブランチを一括削除
+git branch --merged | egrep -v '\*|develop|main|master' | xargs git branch -d
+
 # git rmしないでrmしたファイルを一括してgit rm
 git status | grep deleted: | awk '{print $2}' | xargs git rm
 
