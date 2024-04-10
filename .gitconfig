@@ -35,3 +35,7 @@
   diff = diff-highlight | less
 [diff]
   compactionHeuristic = true
+[pull]
+  rebase = true
+[rerere]
+  enabled = true
