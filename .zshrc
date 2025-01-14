@@ -1,3 +1,5 @@
+# Amazon Q pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
 ## Environment variable configuration
 #
 # LANG
@@ -36,11 +38,11 @@ alias du="du -h"
 alias df="df -h"
 alias su="su -l"
 alias bd='cd -'
-alias ll='ls -alh'
-alias la='ls -A'
-alias l='ls -CF'
 alias rm='rm -i'
 alias ..='cd ..'
+alias ll='eza -alh --icons'
+alias find='fd'
+alias ag='rg'
 alias bex='bundle exec'
 alias up='docker compose up'
 alias dcx='docker compose exec'
@@ -52,16 +54,24 @@ export XDG_CONFIG_HOME=$HOME/.config
 export SVN_EDITOR="vim"
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="/usr/local/Cellar/mysql-client@8.0/8.0.40/bin:$PATH"
 # For Android development
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-19.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
 export ANDROID_HOME="$HOME/Library/Android/sdk"
-export PATH="$ANDROID_HOME/cmdline-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
+
+# For Flutter development
+export FLUTTER_HOME=$HOME/flutter/flutter
+
+export PATH="$ANDROID_HOME/cmdline-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$FLUTTER_HOME/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
 # Homebrew
 eval "$(/usr/local/bin/brew shellenv)"
 
 # rbenv
 eval "$(rbenv init - zsh)"
+
+# direnv
+eval "$(direnv hook zsh)"
 
 # mise
 eval "$(mise activate zsh)"
@@ -86,3 +96,6 @@ eval "$(sheldon source)"
 
 # jump
 eval "$(jump shell)"
+
+# Amazon Q post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
