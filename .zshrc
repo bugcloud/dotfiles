@@ -76,17 +76,14 @@ eval "$(direnv hook zsh)"
 # mise
 eval "$(mise activate zsh)"
 
-# fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_LEGACY_KEYBINDINGS=0
-export FZF_TMUX=1
-function fzf-select-history() {
-    BUFFER=$(history -n -r 1 | fzf --query "$LBUFFER")
-    CURSOR=$#BUFFER
+# skim https://github.com/skim-rs/skim
+
+function skim-select-history() {
+    sk --ansi -i -c 'rg --color=always --line-number "{}"'
     zle reset-prompt
 }
-zle -N fzf-select-history
-bindkey '^r' fzf-select-history
+zle -N skim-select-history
+bindkey '^r' skim-select-history
 
 # starship
 eval "$(starship init zsh)"
