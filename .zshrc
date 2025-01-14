@@ -76,11 +76,15 @@ eval "$(direnv hook zsh)"
 # mise
 eval "$(mise activate zsh)"
 
-# skim https://github.com/skim-rs/skim
-
+# skim
 function skim-select-history() {
-    sk --ansi -i -c 'rg --color=always --line-number "{}"'
-    zle reset-prompt
+  local target=$(history -n -r 1 | sk --query "$LBUFFER" --prompt="History > ")
+
+  if [ -n "$target" ]; then
+    BUFFER=$target
+    CURSOR=$#BUFFER
+  fi
+  zle reset-prompt
 }
 zle -N skim-select-history
 bindkey '^r' skim-select-history
