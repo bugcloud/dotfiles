@@ -1,6 +1,6 @@
 #!/bin/bash
 
-brew install jump mise direnv sk sheldon starship exa ripgrep
+brew install jump mise direnv sk sheldon starship eza ripgrep fd
 
 DOT_FILES=( .zshrc .gitconfig .gitignore .vimrc .vim .tmux.conf .editorconfig bin itermcolors .pryrc uncrustify.cfg )
 for file in ${DOT_FILES[@]}
