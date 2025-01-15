@@ -67,9 +67,6 @@ export PATH="$ANDROID_HOME/cmdline-tools:$ANDROID_HOME/cmdline-tools/latest/bin:
 # Homebrew
 eval "$(/usr/local/bin/brew shellenv)"
 
-# rbenv
-eval "$(rbenv init - zsh)"
-
 # direnv
 eval "$(direnv hook zsh)"
 
