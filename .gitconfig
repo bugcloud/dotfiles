@@ -20,7 +20,7 @@
   ignoreCase = false
 [merge]
   tool = vimdiff
-  conflictstyle = diff3
+  conflictstyle = zdiff3
 [diff]
   colorMoved = default
 #[diff "image"]
