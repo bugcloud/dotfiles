@@ -65,10 +65,7 @@ export FLUTTER_HOME=$HOME/flutter/flutter
 export PATH="$ANDROID_HOME/cmdline-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$FLUTTER_HOME/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
 # Homebrew
-eval "$(/usr/local/bin/brew shellenv)"
-
-# direnv
-eval "$(direnv hook zsh)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # mise
 eval "$(mise activate zsh)"

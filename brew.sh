@@ -6,12 +6,6 @@ brew update
 # Update already-installed formula (takes too much time, I will do it manually later)
 # upgrade
 
-# Add Repository
-brew tap homebrew/versions
-brew tap homebrew/binary
-brew tap caskroom/cask
-brew tap caskroom/fonts
-
 # Packages
 brew install autoconf
 brew install automake
