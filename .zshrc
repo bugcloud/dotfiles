@@ -60,7 +60,7 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 
 # For Flutter development
-export FLUTTER_HOME=$HOME/flutter/flutter
+export FLUTTER_HOME=$HOME/flutter
 
 export PATH="$ANDROID_HOME/cmdline-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$FLUTTER_HOME/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
