@@ -48,6 +48,7 @@ alias up='docker compose up'
 alias dcx='docker compose exec'
 alias :vsp='tmux split-window -h'
 alias :sp='tmux split-window -v'
+alias code='cursor'
 
 # ENV
 export XDG_CONFIG_HOME=$HOME/.config
@@ -57,6 +58,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="/usr/local/Cellar/mysql-client@8.0/8.0.40/bin:$PATH"
 # For Android development
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
+# export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 
 # For Flutter development
@@ -91,6 +93,8 @@ eval "$(sheldon source)"
 
 # jump
 eval "$(jump shell)"
+
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 
 # Amazon Q post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
