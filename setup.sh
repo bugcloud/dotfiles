@@ -16,5 +16,7 @@ mkdir -p ${HOME}/.config/sheldon
 ln -snfv ${HOME}/dotfiles/.config/sheldon/plugins.toml ${HOME}/.config/sheldon/plugins.toml
 mkdir -p ${HOME}/.config/karabiner
 ln -snfv ${HOME}/dotfiles/.config/karabiner/karabiner.json ${HOME}/.config/karabiner/karabiner.json
+mkdir -p ${HOME}/.claude
+ln -snfv ${HOME}/dotfiles/.claude/setting.json ${HOME}/.claude/setting.json
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
