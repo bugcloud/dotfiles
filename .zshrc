@@ -1,5 +1,7 @@
-# Amazon Q pre block. Keep at the top of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
+
+# Kiro CLI pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh"
+
 ## Environment variable configuration
 #
 # LANG
@@ -49,6 +51,9 @@ alias dcx='docker compose exec'
 alias :vsp='tmux split-window -h'
 alias :sp='tmux split-window -v'
 alias code='cursor'
+alias yolo='claude --dangerously-skip-permissions'
+alias fes='CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 claude --teammate-mode tmux'
+alias psql='/opt/homebrew/opt/postgresql@17/bin/psql'
 
 # ENV
 export XDG_CONFIG_HOME=$HOME/.config
@@ -63,6 +68,10 @@ export ANDROID_HOME="$HOME/Library/Android/sdk"
 
 # For Flutter development
 export FLUTTER_HOME=$HOME/flutter
+
+# uv のキャッシュディレクトリ指定
+# 設定しないとuvx実行ディレクトリ直下に ~ というディレクトリが作られる
+export UV_CACHE_DIR="$HOME/.cache/uv"
 
 export PATH="$ANDROID_HOME/cmdline-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$FLUTTER_HOME/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
@@ -96,5 +105,10 @@ eval "$(jump shell)"
 
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 
-# Amazon Q post block. Keep at the bottom of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"# Added by Antigravity
+export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
+
+
+
+# Kiro CLI post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh"
