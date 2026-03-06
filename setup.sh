@@ -16,6 +16,8 @@ mkdir -p ${HOME}/.config/sheldon
 ln -snfv ${HOME}/dotfiles/.config/sheldon/plugins.toml ${HOME}/.config/sheldon/plugins.toml
 mkdir -p ${HOME}/.config/karabiner
 ln -snfv ${HOME}/dotfiles/.config/karabiner/karabiner.json ${HOME}/.config/karabiner/karabiner.json
+mkdir -p ${HOME}/.config/ghostty
+ln -snfv ${HOME}/dotfiles/.config/ghostty/config ${HOME}/.config/ghostty/config
 mkdir -p ${HOME}/.claude
 ln -snfv ${HOME}/dotfiles/.claude/setting.json ${HOME}/.claude/setting.json
 

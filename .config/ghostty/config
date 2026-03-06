@@ -1,0 +1,10 @@
+theme = iTerm2 Solarized Dark
+font-family = Hack Nerd Font Mono
+font-family = Cica
+font-size = 20
+background-opacity = 0.90
+background-blur-radius = 7
+
+shell-integration = zsh
+working-directory = home
+window-inherit-working-directory = true
