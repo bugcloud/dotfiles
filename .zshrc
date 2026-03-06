@@ -1,7 +1,4 @@
 
-# Kiro CLI pre block. Keep at the top of this file.
-[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh"
-
 ## Environment variable configuration
 #
 # LANG
@@ -103,12 +100,12 @@ eval "$(sheldon source)"
 # jump
 eval "$(jump shell)"
 
-export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+# carapace
+autoload -U compinit && compinit
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+source <(carapace _carapace)
 
-[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"# Added by Antigravity
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
 
-
-
-# Kiro CLI post block. Keep at the bottom of this file.
-[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh"
