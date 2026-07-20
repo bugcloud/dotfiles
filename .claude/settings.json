@@ -2,19 +2,19 @@
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "cleanupPeriodDays": 30,
   "env": {
-    "CLAUDE_CODE_ENABLE_TELEMETRY": "0",
-    "DISABLE_COST_WARNINGS": "0",
     "BASH_DEFAULT_TIMEOUT_MS": "300000",
     "BASH_MAX_TIMEOUT_MS": "1200000",
+    "CARGO_HOME": "~/.cargo",
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "0",
+    "DENO_DIR": "~/.cache/deno",
+    "DISABLE_COST_WARNINGS": "0",
+    "GOPATH": "~/go",
     "MAX_THINKING_TOKENS": "1024",
+    "NODE_OPTIONS": "--max-old-space-size=4096",
+    "RUSTUP_HOME": "~/.rustup",
     "SHELL": "/bin/zsh",
     "UV_CACHE_DIR": "~/.cache/uv",
-    "UV_PYTHON_PREFERENCE": "managed",
-    "DENO_DIR": "~/.cache/deno",
-    "CARGO_HOME": "~/.cargo",
-    "RUSTUP_HOME": "~/.rustup",
-    "GOPATH": "~/go",
-    "NODE_OPTIONS": "--max-old-space-size=4096"
+    "UV_PYTHON_PREFERENCE": "managed"
   },
   "permissions": {
     "allow": [
@@ -323,12 +323,66 @@
       "Write(/etc/passwd)",
       "Write(/etc/shadow)",
       "Write(/etc/sudoers)"
-    ],
-    "defaultMode": "acceptEdits"
+    ]
   },
-  "model": "sonnet",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '$HOME/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/ccline/ccline",
+    "padding": 0
+  },
+  "enabledPlugins": {
+    "claude-code-setup@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true,
+    "ruby-lsp@claude-plugins-official": true,
+    "security-guidance@claude-plugins-official": true,
+    "skill-codex@skill-codex": true,
+    "superpowers@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "cloudflare": {
+      "source": {
+        "source": "github",
+        "repo": "cloudflare/skills"
+      }
+    },
+    "openai-codex": {
+      "source": {
+        "source": "github",
+        "repo": "openai/codex-plugin-cc"
+      }
+    },
+    "skill-codex": {
+      "source": {
+        "source": "github",
+        "repo": "skills-directory/skill-codex"
+      }
+    }
+  },
+  "effortLevel": "high",
+  "tui": "fullscreen",
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "light",
+  "remoteControlAtStartup": false,
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": true,
+  "defaultMode": "auto",
   "feedbackSurveyState": {
     "lastShownTime": 1754055019483
-  },
-  "skipDangerousModePermissionPrompt": true
+  }
 }

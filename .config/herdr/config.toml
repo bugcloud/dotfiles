@@ -1,0 +1,9 @@
+onboarding = false
+
+[theme]
+name = "solarized"
+auto_switch = false
+
+[keys]
+prefix = "ctrl+space"
+next_tab = "prefix+space"

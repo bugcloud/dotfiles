@@ -45,11 +45,24 @@ alias ag='rg'
 alias bex='bundle exec'
 alias up='docker compose up'
 alias dcx='docker compose exec'
-alias :vsp='tmux split-window -h'
-alias :sp='tmux split-window -v'
+:vsp() {
+  if [[ -n "$HERDR_ENV" ]]; then
+    herdr pane split --current --direction right "$@"
+  else
+    tmux split-window -h "$@"
+  fi
+}
+:sp() {
+  if [[ -n "$HERDR_ENV" ]]; then
+    herdr pane split --current --direction down "$@"
+  else
+    tmux split-window -v "$@"
+  fi
+}
 alias code='cursor'
 alias yolo='claude --dangerously-skip-permissions'
-alias fes='CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 claude --teammate-mode tmux'
+# alias yolo='claude --enable-auto-mode'
+alias fes='CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 claude --dangerously-skip-permissions --teammate-mode tmux'
 alias psql='/opt/homebrew/opt/postgresql@17/bin/psql'
 
 # ENV
@@ -109,3 +122,15 @@ source <(carapace _carapace)
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
 
+
+# Vite+ bin (https://viteplus.dev)
+. "$HOME/.vite-plus/env"
+export PATH="$HOME/.local/bin:$PATH"
+
+# >>> otty shell integration >>>
+# Added by Otty — toggle in Settings > Shell > Shell Integration.
+# Inert unless launched by Otty (it sets $OTTY_SHELL_INTEGRATION).
+if [ -n "$OTTY_SHELL_INTEGRATION" ] && [ -r "$OTTY_SHELL_INTEGRATION/otty-integration.zsh" ]; then
+  . "$OTTY_SHELL_INTEGRATION/otty-integration.zsh"
+fi
+# <<< otty shell integration <<<

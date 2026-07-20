@@ -12,3 +12,5 @@
 .vim/.netrwhist
 .vim/dein
 .vim/init.vim
+
+**/.claude/settings.local.json

@@ -20,5 +20,6 @@ mkdir -p ${HOME}/.config/ghostty
 ln -snfv ${HOME}/dotfiles/.config/ghostty/config ${HOME}/.config/ghostty/config
 mkdir -p ${HOME}/.claude
 ln -snfv ${HOME}/dotfiles/.claude/setting.json ${HOME}/.claude/setting.json
+ln -snfv ${HOME}/dotfiles/.config/herdr/config.toml ${HOME}/.config/herdr/config.toml
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
